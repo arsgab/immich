@@ -1,6 +1,6 @@
 **/node_modules/**
 
-.DS_Store
+**/.DS_Store
 .vscode/
 .idea
 .scratch
@@ -10,15 +10,7 @@ docker/library
 uploads
 coverage
 
-mobile/generated
-mobile/gradle.properties
-mobile/*.jks
-mobile/libisar.dylib
-mobile/ios/build
-
 packages/**/build
-mobile/android/fastlane/report.xml
-mobile/ios/fastlane/report.xml
 
 vite.config.js.timestamp-*
 .pnpm-store
