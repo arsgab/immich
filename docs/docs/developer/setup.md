@@ -19,7 +19,7 @@ This environment includes the services below. Additional details are available i
 All the services are packaged to run with a single Docker Compose command.
 
 :::tip mise
-[mise](https://mise.jdx.dev) is used throughout the project to manage tool versions and run tasks. [Install mise](https://mise.jdx.dev/installing-mise.html), then from the repo root run `mise trust` and `mise install` to get all required tools. Tasks for each service can be run from the repo root using `mise //namespace:task` (e.g. `mise //server:lint`). To list all available tasks, run `mise tasks ls --all`.
+[mise](https://mise.jdx.dev) is used throughout the project to manage tool versions and run tasks. [Install mise](https://mise.jdx.dev/installing-mise.html), then from the repo root run `mise trust` and `mise install` to get all required tools. Tasks for each service can be run from the repo root using `mise namespace:task` (e.g. `mise server:lint`). To list all available tasks, run `mise tasks ls`.
 :::
 
 ### Server and web apps
@@ -49,20 +49,20 @@ You can access the web from `http://your-machine-ip:3000` or `http://localhost:3
 If you only want to do web development connected to an existing, remote backend, run from the repo root:
 
 ```bash
-IMMICH_SERVER_URL=https://demo.immich.app/ mise //web:start
+IMMICH_SERVER_URL=https://demo.immich.app/ mise web:start
 ```
 
 This will install all dependencies (including the SDK) and start the dev server in one step. To connect to the hosted demo server specifically, use the shorthand:
 
 ```bash
-mise //web:start-demo
+mise web:start-demo
 ```
 
 If you're using PowerShell on Windows you may need to set the env var separately like so:
 
 ```powershell
 $env:IMMICH_SERVER_URL = "https://demo.immich.app/"
-mise //web:start
+mise web:start
 ```
 
 #### `@immich/ui`
@@ -81,13 +81,13 @@ To see local changes to `@immich/ui` in Immich, do the following:
 
 #### Setup
 
-1. Run `mise //mobile:install` to install Flutter dependencies.
-2. Run `mise //mobile:translation` to generate the translation file.
-3. Run `mise //mobile:checkout` to update the dependencies and codegen artifacts.
+1. Run `mise mobile:install` to install Flutter dependencies.
+2. Run `mise mobile:translation` to generate the translation file.
+3. Run `mise mobile:checkout` to update the dependencies and codegen artifacts.
 4. Change to the `mobile/` directory and run `flutter run` to start the app.
 
 :::important Workflow
-Always run `mise //mobile:checkout` after switching branches.
+Always run `mise mobile:checkout` after switching branches.
 :::
 
 The app includes a small Rust core (`native/`) that is compiled from source during the build. With mise the Rust toolchain is installed for you; with your own Flutter install, install [rustup](https://rustup.rs) once and the build fetches the pinned toolchain itself. The first build takes a little longer because of this.
@@ -112,7 +112,7 @@ The environment values are used across Immich's targets and schemes to prevent r
 To add a new translation text, enter the key-value pair in the `i18n/en.json` in the root of the immich project. Then run:
 
 ```bash
-mise //mobile:translation
+mise mobile:translation
 ```
 
 The mobile app asks you what backend to connect to. You can utilize the demo backend (https://demo.immich.app/) if you don't need to change server code or upload photos. Alternatively, you can run the server yourself per the instructions above.

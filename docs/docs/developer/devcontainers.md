@@ -243,8 +243,8 @@ To connect the mobile app to your Dev Container:
 
 - **Server code** (`/server`): Changes trigger automatic restart
 - **Web code** (`/web`): Changes trigger hot module replacement
-- **Database migrations**: Run `mise //:sql`
-- **API changes**: Regenerate TypeScript SDK with `mise //:open-api`
+- **Database migrations**: Run `mise :sql`
+- **API changes**: Regenerate TypeScript SDK with `mise :open-api`
 
 ## Testing
 
@@ -254,31 +254,31 @@ The Dev Container supports multiple ways to run tests:
 
 ```bash
 # Server
-mise //server:test          # unit tests
-mise //server:test-medium   # medium / integration tests
+mise server:test          # unit tests
+mise server:test-medium   # medium / integration tests
 
 # Web
-mise //web:test             # unit tests
+mise web:test             # unit tests
 
 # E2E
 mise //e2e:test             # API tests
 mise //e2e:test-web         # web UI tests (Playwright)
 
 # Run all checks for a component
-mise //server:checklist
-mise //web:checklist
+mise server:checklist
+mise web:checklist
 ```
 
 ### Additional Commands
 
 ```bash
 # API generation
-mise //:open-api             # Generate OpenAPI specs
-mise //:open-api-typescript  # Generate TypeScript SDK
-mise //:open-api-dart        # Generate Dart SDK
+mise :open-api             # Generate OpenAPI specs
+mise :open-api-typescript  # Generate TypeScript SDK
+mise :open-api-dart        # Generate Dart SDK
 
 # Database
-mise //server:sql            # Sync database schema
+mise server:sql            # Sync database schema
 ```
 
 ### Debugging

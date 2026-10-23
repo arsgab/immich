@@ -4,8 +4,8 @@
 
 ### Unit tests
 
-Unit tests are run with `mise //server:test`.
-You need to run `mise //server:install` before _once_.
+Unit tests are run with `mise server:test`.
+You need to run `mise server:install` before _once_.
 
 ### End to end tests
 
@@ -18,7 +18,7 @@ mise e2e
 Before you can run the tests, you need to run the following commands _once_:
 
 - `mise //e2e:ci-setup` (installs e2e, SDK, and CLI dependencies)
-- `mise //:open-api`
+- `mise :open-api`
 
 Once the test environment is running, the e2e tests can be run via:
 

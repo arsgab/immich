@@ -1,25 +1,12 @@
-monorepo_root = true
-
-[monorepo]
-config_roots = [
-  "packages/plugin-core",
-  "server",
-  "packages/cli",
-  "web",
-  "docs",
-  ".github",
-  "machine-learning",
-]
-
 [tools]
 node = "24.22.1"
 pnpm = "12.14.0"
-"npm:@openapitools/openapi-generator-cli" = "2.41.0"
+python = "3.12"
+uv = "0.8.15"
 "npm:oazapfts" = "7.5.0"
 "github:extism/cli" = "1.6.3"
 "github:webassembly/binaryen" = "version_124"
 "github:extism/js-pdk" = "v1.7.0"
-java = "21.0.2"
 
 [tools."github:jellyfin/jellyfin-ffmpeg"]
 version = "7.1.3-6"
@@ -33,13 +20,9 @@ macos-arm64 = { asset_pattern = "jellyfin-ffmpeg_*_portable_macarm64-gpl.tar.xz"
 [settings]
 pin = true
 lockfile = true
-lockfile_platforms = [
-  "linux-x64",
-  "linux-arm64",
-  "macos-x64",
-  "macos-arm64",
-  "windows-x64",
-]
+lockfile_platforms = ["linux-x64", "linux-arm64", "macos-x64", "macos-arm64"]
+
+# Root tasks
 
 [tasks.plugins]
 run = [
@@ -47,79 +30,26 @@ run = [
   "pnpm --filter @immich/sdk --filter @immich/plugin-sdk --filter @immich/plugin-core build",
 ]
 
-[tasks.open-api-typescript]
-run = [
-  "oazapfts --optimistic --argumentStyle=object --useEnumType --allSchemas open-api/immich-openapi-specs.json packages/sdk/src/fetch-client.ts",
-  { task = "//:sdk:install" },
-  { task = "//:sdk:build" },
-]
-
 [tasks.open-api]
 run = [
-  { task = "//:plugins" },
-  { task = "//server:install" },
-  { task = "//server:build" },
-  { task = "//server:sync-open-api" },
-  { task = ":open-api-typescript" },
+  { task = "plugins" },
+  { task = "server:install" },
+  { task = "server:build" },
+  { task = "server:sync-open-api" },
+  "oazapfts --optimistic --argumentStyle=object --useEnumType --allSchemas open-api/immich-openapi-specs.json packages/sdk/src/fetch-client.ts",
+  { task = "sdk:install" },
+  { task = "sdk:build" },
 ]
 
 [tasks.sql]
 dir = "server"
 run = "node ./dist/bin/sync-sql.js"
 
-# TODO dev, prod, and e2e should be de-duplicated by using env but for some reason I ran into issues
-[tasks.dev]
-depends = "//:plugins"
-dir = "docker"
-interactive = true
-env = { COMPOSE_BAKE = true }
-run = "docker compose -f ./docker-compose.dev.yml up --remove-orphans"
-depends_post = "//:dev-down"
-
-[tasks.dev-update]
-run = { task = "//:dev", args = ["--build", "-V"] }
-
-[tasks.dev-scale]
-run = { task = "//:dev", args = ["--build", "-V", "--scale immich-server=3"] }
-
-[tasks.dev-down]
-dir = "docker"
-run = "docker compose -f ./docker-compose.dev.yml down --remove-orphans"
-
-[tasks.prod]
-depends = "//:plugins"
-dir = "docker"
-interactive = true
-env = { COMPOSE_BAKE = true }
-run = "docker compose -f ./docker-compose.prod.yml up --build --remove-orphans"
-depends_post = "//:prod-down"
-
-[tasks.prod-scale]
-run = { task = "//:prod", args = [
-  "--build",
-  "-V",
-  "--scale immich-server=3",
-  "--scale immich-microservices",
-] }
-
-[tasks.prod-down]
-dir = "docker"
-run = "docker compose -f ./docker-compose.prod.yml down --remove-orphans"
-
-# SDK tasks
-[tasks."sdk:install"]
-dir = "packages/sdk"
-run = "pnpm --filter @immich/sdk install --frozen-lockfile"
-
-[tasks."sdk:build"]
-dir = "packages/sdk"
-run = "pnpm build"
-
-# i18n tasks
-[tasks."i18n:format"]
+[tasks.format]
+description = "Check formatting of i18n/"
 run = "pnpm format"
 
-[tasks."i18n:format-fix"]
+[tasks."format-fix"]
 run = "pnpm format:fix"
 
 [tasks.clean]
@@ -130,5 +60,268 @@ run = [
   "find . -name '.svelte-kit' -type d -prune -exec rm -rf '{}' +",
   "find . -name 'coverage' -type d -prune -exec rm -rf '{}' +",
   "find . -name '.pnpm-store' -type d -prune -exec rm -rf '{}' +",
-  { task = "//:*-down" },
+  { task = "dev-down" },
+  { task = "prod-down" },
+]
+
+# Docker compose
+
+[tasks.dev]
+depends = "plugins"
+dir = "docker"
+interactive = true
+env = { COMPOSE_BAKE = true }
+run = "docker compose -f ./docker-compose.dev.yml up --remove-orphans"
+depends_post = "dev-down"
+
+[tasks.dev-update]
+run = { task = "dev", args = ["--build", "-V"] }
+
+[tasks.dev-down]
+dir = "docker"
+run = "docker compose -f ./docker-compose.dev.yml down --remove-orphans"
+
+[tasks.prod]
+depends = "plugins"
+dir = "docker"
+interactive = true
+env = { COMPOSE_BAKE = true }
+run = "docker compose -f ./docker-compose.prod.yml up --build --remove-orphans"
+depends_post = "prod-down"
+
+[tasks.prod-down]
+dir = "docker"
+run = "docker compose -f ./docker-compose.prod.yml down --remove-orphans"
+
+# packages/sdk
+
+[tasks."sdk:install"]
+dir = "packages/sdk"
+run = "pnpm --filter @immich/sdk install --frozen-lockfile"
+
+[tasks."sdk:build"]
+dir = "packages/sdk"
+run = "pnpm build"
+
+# packages/plugin-core
+
+[tasks."plugin-core:build"]
+dir = "packages/plugin-core"
+run = [
+  "pnpm install --frozen-lockfile",
+  "pnpm --filter @immich/plugin-sdk --filter @immich/plugin-core build",
+]
+
+# server
+
+[tasks."server:install"]
+dir = "server"
+run = "pnpm install --filter immich --frozen-lockfile"
+
+[tasks."server:build"]
+dir = "server"
+run = "pnpm exec nest build"
+
+[tasks."server:test"]
+dir = "server"
+run = "pnpm exec vitest --config test/vitest.config.mjs"
+
+[tasks."server:test-medium"]
+dir = "server"
+run = "pnpm exec vitest --config test/vitest.config.medium.mjs"
+
+[tasks."server:format"]
+dir = "server"
+run = "pnpm exec prettier --check ."
+
+[tasks."server:format-fix"]
+dir = "server"
+run = "pnpm exec prettier --write ."
+
+[tasks."server:lint"]
+dir = "server"
+run = "pnpm exec eslint \"src/**/*.ts\" \"test/**/*.ts\" --max-warnings 0"
+
+[tasks."server:lint-fix"]
+run = { task = "server:lint --fix" }
+
+[tasks."server:check"]
+dir = "server"
+run = "pnpm exec tsc --noEmit"
+
+[tasks."server:sync-open-api"]
+dir = "server"
+run = "node ./dist/bin/sync-open-api.js"
+
+[tasks."server:migrations"]
+dir = "server"
+description = "Run database migration commands (create, generate, run, sync-order, verify-order, ...)"
+run = "pnpm exec sql-tools -u ${DB_URL:-postgres://postgres:postgres@localhost:5432/immich} migrations"
+
+[tasks."server:schema-drop"]
+run = { task = "server:migrations query 'DROP schema public cascade; CREATE schema public;'" }
+
+[tasks."server:schema-reset"]
+run = [{ task = "server:schema-drop" }, { task = "server:migrations run" }]
+
+[tasks."server:email-dev"]
+dir = "server"
+run = "pnpm exec email dev -p 3050 --dir src/emails"
+
+[tasks."server:ci-unit"]
+run = [
+  { task = "server:install" },
+  { task = "plugins" },
+  { task = "server:format" },
+  { task = "server:lint" },
+  { task = "server:check" },
+  { task = "server:test --run" },
+]
+
+[tasks."server:ci-medium"]
+run = [
+  { task = "server:install" },
+  { task = "plugins" },
+  { task = "plugin-core:build" },
+  { task = "server:test-medium --run" },
+]
+
+# web
+
+[tasks."web:install"]
+dir = "web"
+run = "pnpm install --filter immich-web --frozen-lockfile"
+
+[tasks."web:build"]
+dir = "web"
+run = "pnpm run build"
+
+[tasks."web:start"]
+dir = "web"
+run = [
+  { task = "web:install" },
+  { task = "sdk:install" },
+  { task = "sdk:build" },
+  "pnpm run dev",
+]
+
+[tasks."web:start-demo"]
+env.IMMICH_SERVER_URL = "https://demo.immich.app"
+run = { task = "web:start" }
+
+[tasks."web:test"]
+dir = "web"
+run = "pnpm run test"
+
+[tasks."web:format"]
+dir = "web"
+run = "pnpm run format"
+
+[tasks."web:format-fix"]
+dir = "web"
+run = "pnpm run format:fix"
+
+[tasks."web:lint"]
+dir = "web"
+run = "pnpm run lint"
+
+[tasks."web:lint-fix"]
+dir = "web"
+run = "pnpm run lint:fix"
+
+[tasks."web:check"]
+dir = "web"
+run = ["pnpm run check:typescript", "pnpm run check:svelte"]
+
+[tasks."web:ci-unit"]
+run = [
+  { task = "sdk:install" },
+  { task = "sdk:build" },
+  { task = "web:install" },
+  { task = "web:format" },
+  { task = "web:check" },
+  { task = "web:test --run" },
+]
+
+# packages/cli
+
+[tasks."cli:install"]
+dir = "packages/cli"
+run = "pnpm install --filter @immich/cli --frozen-lockfile"
+
+[tasks."cli:build"]
+dir = "packages/cli"
+run = "pnpm exec vite build"
+
+[tasks."cli:test"]
+dir = "packages/cli"
+run = "pnpm exec vitest"
+
+# machine-learning
+
+[tasks."ml:install"]
+dir = "machine-learning"
+run = "uv sync --locked"
+
+[tasks."ml:format"]
+dir = "machine-learning"
+run = "uv run ruff format immich_ml scripts test_main.py conftest.py"
+
+[tasks."ml:lint"]
+dir = "machine-learning"
+run = "uv run ruff check immich_ml scripts test_main.py conftest.py"
+
+[tasks."ml:check"]
+dir = "machine-learning"
+run = "uv run mypy --strict immich_ml/ scripts/ test_main.py conftest.py"
+
+[tasks."ml:test"]
+dir = "machine-learning"
+run = "uv run pytest --cov=immich_ml --cov-report term-missing"
+
+[tasks."ml:ci-unit"]
+run = [
+  { task = "ml:install --extra cpu" },
+  { task = "ml:format" },
+  { task = "ml:lint --output-format=github" },
+  { task = "ml:check" },
+  { task = "ml:test" },
+]
+
+# docs
+
+[tasks."docs:install"]
+dir = "docs"
+run = "pnpm install --filter documentation --frozen-lockfile"
+
+[tasks."docs:start"]
+dir = "docs"
+run = "pnpm exec docusaurus start --port 3005"
+
+[tasks."docs:build"]
+dir = "docs"
+run = [
+  "jq -c < ../open-api/immich-openapi-specs.json > ./static/openapi.json || exit 0",
+  "pnpm exec docusaurus build",
+]
+
+# pre-push checklists
+
+[tasks."server:checklist"]
+run = [
+  { task = "server:ci-unit" },
+  { task = "server:ci-medium" },
+  { task = "server:migrations verify-order" },
+]
+
+[tasks."web:checklist"]
+run = [{ task = "web:ci-unit" }, { task = "web:lint" }]
+
+[tasks."ml:checklist"]
+run = [
+  { task = "ml:install" },
+  { task = "ml:format" },
+  { task = "ml:lint" },
+  { task = "ml:check" },
+  { task = "ml:test" },
 ]

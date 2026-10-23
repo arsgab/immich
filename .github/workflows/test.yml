@@ -24,7 +24,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Run ci-unit
-        run: mise run //server:ci-unit
+        run: mise run server:ci-unit
   web-lint:
     name: Lint Web
     runs-on: ubuntu-latest
@@ -43,7 +43,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Run setup @immich/sdk
-        run: mise run //:sdk:install && mise run //:sdk:build
+        run: mise run sdk:install && mise run sdk:build
       - name: Run pnpm install
         run: pnpm install --frozen-lockfile
       - name: Run linter
@@ -67,7 +67,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Run ci-unit
-        run: mise run ci-unit
+        run: mise run web:ci-unit
   server-medium-tests:
     name: Medium Tests (Server)
     runs-on: ubuntu-latest
@@ -92,7 +92,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Run ci-medium
-        run: mise run ci-medium
+        run: mise run server:ci-medium
         if: ${{ !cancelled() }}
   ml-unit-tests:
     name: Unit Test ML
@@ -110,7 +110,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           working_directory: ./machine-learning
       - name: Run ci-unit
-        run: mise run ci-unit
+        run: mise run ml:ci-unit
     permissions:
       contents: read
   generated-api-up-to-date:
@@ -130,7 +130,7 @@ jobs:
       - name: Install server dependencies
         run: pnpm --filter immich install --frozen-lockfile
       - name: Run API generation
-        run: mise //:open-api
+        run: mise run open-api
         working-directory: open-api
       - name: Find file changes
         uses: tj-actions/verify-changed-files@a1c6acee9df209257a246f2cc6ae8cb6581c1edf # v20.0.4
@@ -175,9 +175,9 @@ jobs:
       - name: Install server dependencies
         run: pnpm install --frozen-lockfile
       - name: Build plugins
-        run: mise //:plugins
+        run: mise run plugins
       - name: Build the app
-        run: mise //server:build
+        run: mise run server:build
       - name: Run existing migrations
         run: pnpm --filter immich migrations:run
       - name: Test npm run schema:reset command works
@@ -201,7 +201,7 @@ jobs:
           cat ./server/src/*-TestMigration.ts
           exit 1
       - name: Run SQL generation
-        run: mise //:sql
+        run: mise run sql
         env:
           DB_URL: postgres://postgres:postgres@localhost:5432/immich
       - name: Find file changes
