@@ -1,9 +1,7 @@
 **/node_modules/**
 
 .DS_Store
-.vscode/*
-!.vscode/launch.json
-!.vscode/extensions.json
+.vscode/
 .idea
 .scratch
 

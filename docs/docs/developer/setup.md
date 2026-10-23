@@ -149,7 +149,7 @@ Note: Activating the license is not required.
 
 ### VSCode
 
-Install `Flutter`, `DCM`, `Prettier`, `ESLint` and `Svelte` extensions. These extensions are listed in the `extensions.json` file under `.vscode/` and should appear as workspace recommendations.
+Install the `Prettier`, `ESLint` and `Svelte` extensions.
 
 Here are the settings we use, they should be active as workspace settings (`settings.json`):
 
