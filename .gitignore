@@ -28,3 +28,6 @@ vite.config.js.timestamp-*
 .devcontainer/.env*
 *.tsbuildinfo
 *.tsbuildInfo
+
+# fetched in CI for server medium tests (formerly a submodule)
+e2e/test-assets/

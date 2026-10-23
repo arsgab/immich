@@ -42,7 +42,6 @@
   "eslint.validate": ["javascript", "typescript", "svelte"],
   "eslint.workingDirectories": [
     { "changeProcessCWD": true, "directory": "cli" },
-    { "changeProcessCWD": true, "directory": "e2e" },
     { "changeProcessCWD": true, "directory": "server" },
     { "changeProcessCWD": true, "directory": "web" }
   ],

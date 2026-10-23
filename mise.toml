@@ -6,13 +6,10 @@ config_roots = [
   "server",
   "packages/cli",
   "deployment",
-  "mobile",
-  "e2e",
   "web",
   "docs",
   ".github",
   "machine-learning",
-  "native",
 ]
 
 [tools]
@@ -47,21 +44,6 @@ lockfile_platforms = [
   "windows-x64",
 ]
 
-[tasks.release]
-run = [
-  "pnpm --filter @immich/scripts install --frozen-lockfile",
-  "pnpm --filter @immich/scripts build",
-  "pnpm --filter @immich/scripts cli release {{arg(name='args', var=true)}}",
-  { task = "//:open-api" },
-]
-
-[tasks.notes]
-run = [
-  "pnpm --filter @immich/scripts install --frozen-lockfile",
-  "pnpm --filter @immich/scripts build",
-  "pnpm --filter @immich/scripts cli notes {{arg(name='args', var=true)}}",
-]
-
 [tasks.plugins]
 run = [
   "pnpm --filter @immich/sdk --filter @immich/plugin-sdk --filter @immich/plugin-core install --frozen-lockfile",
@@ -75,18 +57,6 @@ run = [
   { task = "//:sdk:build" },
 ]
 
-[tasks.open-api-dart]
-dir = "open-api"
-sources = [
-  "immich-openapi-specs.json",
-  "openapitools.json",
-  "templates/**/*",
-  "patch/*",
-  "bin/generate-dart-sdk.sh",
-]
-outputs = ["../mobile/generated/openapi/"]
-run = "bash ./bin/generate-dart-sdk.sh"
-
 [tasks.open-api]
 run = [
   { task = "//:plugins" },
@@ -94,7 +64,6 @@ run = [
   { task = "//server:build" },
   { task = "//server:sync-open-api" },
   { task = ":open-api-typescript" },
-  { task = ":open-api-dart" },
 ]
 
 [tasks.sql]
@@ -139,33 +108,6 @@ run = { task = "//:prod", args = [
 [tasks.prod-down]
 dir = "docker"
 run = "docker compose -f ./docker-compose.prod.yml down --remove-orphans"
-
-[tasks.e2e]
-depends = "//:plugins"
-dir = "e2e"
-interactive = true
-env = { COMPOSE_BAKE = true }
-run = "docker compose -f ./docker-compose.yml up --remove-orphans"
-depends_post = "//:e2e-down"
-
-[tasks.e2e-dev]
-depends = "//:plugins"
-dir = "e2e"
-interactive = true
-env = { COMPOSE_BAKE = true }
-run = "docker compose -f ./docker-compose.dev.yml up --remove-orphans"
-depends_post = "//:e2e-dev-down"
-
-[tasks.e2e-update]
-run = { task = "//:e2e", args = ["--build", '-V'] }
-
-[tasks.e2e-down]
-dir = "e2e"
-run = "docker compose -f ./docker-compose.yml down --remove-orphans"
-
-[tasks.e2e-dev-down]
-dir = "e2e"
-run = "docker compose -f ./docker-compose.dev.yml down --remove-orphans"
 
 # SDK tasks
 [tasks."sdk:install"]
