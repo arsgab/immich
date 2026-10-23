@@ -1,4 +1,9 @@
 <script lang="ts">
+  import { type AlbumResponseDto } from '@immich/sdk';
+  import { Button, Icon, Modal, ModalBody, ModalFooter, Text } from '@immich/ui';
+  import { mdiKeyboardReturn } from '@mdi/js';
+  import { createQuery } from '@tanstack/svelte-query';
+  import { t } from 'svelte-i18n';
   import { initInput } from '$lib/actions/focus';
   import {
     AlbumModalRowConverter,
@@ -8,11 +13,6 @@
   import { createAlbumMutation, getAllAlbumsQuery, getRecentAlbumsQuery } from '$lib/queries/album.query';
   import { executeMutation, queryClient } from '$lib/queries/client';
   import { albumViewSettings } from '$lib/stores/preferences.store';
-  import { type AlbumResponseDto } from '@immich/sdk';
-  import { Button, Icon, Modal, ModalBody, ModalFooter, Text } from '@immich/ui';
-  import { mdiKeyboardReturn } from '@mdi/js';
-  import { createQuery } from '@tanstack/svelte-query';
-  import { t } from 'svelte-i18n';
   import AlbumListItem from '../components/asset-viewer/AlbumListItem.svelte';
   import NewAlbumListItem from '../components/shared-components/album-selection/NewAlbumListItem.svelte';
 

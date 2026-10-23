@@ -1,6 +1,12 @@
 <script lang="ts">
+  import { AssetVisibility } from '@immich/sdk';
+  import { ActionButton, CommandPaletteDefaultProvider, ImageCarousel } from '@immich/ui';
+  import { mdiDotsVertical } from '@mdi/js';
+  import { DateTime } from 'luxon';
+  import { t } from 'svelte-i18n';
   import ActionMenuItem from '$lib/components/ActionMenuItem.svelte';
   import UserPageLayout from '$lib/components/layouts/UserPageLayout.svelte';
+  import MemoryCard from '$lib/components/memories/MemoryCard.svelte';
   import ButtonContextMenu from '$lib/components/shared-components/context-menu/ButtonContextMenu.svelte';
   import EmptyPlaceholder from '$lib/components/shared-components/EmptyPlaceholder.svelte';
   import ArchiveAction from '$lib/components/timeline/actions/ArchiveAction.svelte';
@@ -29,12 +35,6 @@
   import { openFileUploadDialog } from '$lib/utils/file-uploader';
   import { getAltText } from '$lib/utils/thumbnail-util';
   import { toTimelineAsset } from '$lib/utils/timeline-util';
-  import { AssetVisibility } from '@immich/sdk';
-  import MemoryCard from '$lib/components/memories/MemoryCard.svelte';
-  import { ActionButton, CommandPaletteDefaultProvider, ImageCarousel } from '@immich/ui';
-  import { mdiDotsVertical } from '@mdi/js';
-  import { DateTime } from 'luxon';
-  import { t } from 'svelte-i18n';
 
   let timelineManager = $state<TimelineManager>() as TimelineManager;
   const options = { visibility: AssetVisibility.Timeline, withStacked: true, withPartners: true };

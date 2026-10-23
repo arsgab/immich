@@ -1,13 +1,13 @@
 <script lang="ts">
-  import { initInput } from '$lib/actions/focus';
-  import UserAvatar from '$lib/components/shared-components/UserAvatar.svelte';
-  import { normalizeSearchString } from '$lib/utils/string-utils';
   import { searchUsers, type UserResponseDto } from '@immich/sdk';
   import { FormModal, ListButton, LoadingSpinner, Stack, Text } from '@immich/ui';
   import { sortBy } from 'lodash-es';
   import { onMount } from 'svelte';
   import { t } from 'svelte-i18n';
   import { SvelteMap } from 'svelte/reactivity';
+  import { initInput } from '$lib/actions/focus';
+  import UserAvatar from '$lib/components/shared-components/UserAvatar.svelte';
+  import { normalizeSearchString } from '$lib/utils/string-utils';
 
   type Props = {
     excludedUserIds: string[];

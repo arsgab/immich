@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { userPreferencesManager, type MemoriesPreferences } from '$lib/managers/user-preferences-manager.svelte';
   import { Field, FormModal, Stack, Switch } from '@immich/ui';
   import { t } from 'svelte-i18n';
+  import { userPreferencesManager, type MemoriesPreferences } from '$lib/managers/user-preferences-manager.svelte';
 
   type Props = {
     onClose: (settings?: MemoriesPreferences) => void;

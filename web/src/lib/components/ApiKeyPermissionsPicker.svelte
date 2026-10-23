@@ -1,9 +1,9 @@
 <script lang="ts">
-  import ApiKeyGrid from '$lib/components/user-settings-page/UserApiKeyGrid.svelte';
   import { Permission } from '@immich/sdk';
   import { Checkbox, IconButton, Input, Label } from '@immich/ui';
   import { mdiClose } from '@mdi/js';
   import { t } from 'svelte-i18n';
+  import ApiKeyGrid from '$lib/components/user-settings-page/UserApiKeyGrid.svelte';
 
   type Props = {
     selectedPermissions: Permission[];

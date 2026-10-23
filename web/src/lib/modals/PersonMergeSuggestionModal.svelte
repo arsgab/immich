@@ -1,11 +1,11 @@
 <script lang="ts">
-  import { getPeopleThumbnailUrl } from '$lib/utils';
-  import { handleError } from '$lib/utils/handle-error';
   import { mergePeople, type PersonResponseDto } from '@immich/sdk';
   import { FormModal, Icon, IconButton, toastManager } from '@immich/ui';
   import { mdiArrowLeft, mdiCallMerge, mdiSwapHorizontal } from '@mdi/js';
   import { onMount, tick } from 'svelte';
   import { t } from 'svelte-i18n';
+  import { getPeopleThumbnailUrl } from '$lib/utils';
+  import { handleError } from '$lib/utils/handle-error';
   import ImageThumbnail from '../components/assets/thumbnail/ImageThumbnail.svelte';
 
   type Props = {

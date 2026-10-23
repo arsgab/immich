@@ -1,11 +1,4 @@
 <script lang="ts">
-  import AdminPageLayout from '$lib/components/layouts/AdminPageLayout.svelte';
-  import { createPreloadedQuery } from '$lib/queries/client';
-  import { searchUsersAdminQuery } from '$lib/queries/user-admin.query';
-  import { Route } from '$lib/route';
-  import { getUserAdminActions, getUserAdminsActions } from '$lib/services/user-admin.service';
-  import { locale } from '$lib/stores/preferences.store';
-  import { getByteUnitString } from '$lib/utils/byte-units';
   import type { UserAdminResponseDto } from '@immich/sdk';
   import {
     CommandPaletteDefaultProvider,
@@ -24,6 +17,13 @@
   import { mdiInfinity } from '@mdi/js';
   import type { Snippet } from 'svelte';
   import { t } from 'svelte-i18n';
+  import AdminPageLayout from '$lib/components/layouts/AdminPageLayout.svelte';
+  import { createPreloadedQuery } from '$lib/queries/client';
+  import { searchUsersAdminQuery } from '$lib/queries/user-admin.query';
+  import { Route } from '$lib/route';
+  import { getUserAdminActions, getUserAdminsActions } from '$lib/services/user-admin.service';
+  import { locale } from '$lib/stores/preferences.store';
+  import { getByteUnitString } from '$lib/utils/byte-units';
   import type { LayoutData } from './$types';
 
   type Props = {

@@ -1,11 +1,11 @@
 <script lang="ts">
-  import Combobox, { asComboboxOptions, asSelectedOption } from '$lib/components/shared-components/Combobox.svelte';
-  import { searchManager } from '$lib/managers/search-manager.svelte';
-  import { handlePromiseError } from '$lib/utils';
   import { getSearchSuggestions, SearchSuggestionType } from '@immich/sdk';
   import { Text } from '@immich/ui';
   import { onMount } from 'svelte';
   import { t } from 'svelte-i18n';
+  import Combobox, { asComboboxOptions, asSelectedOption } from '$lib/components/shared-components/Combobox.svelte';
+  import { searchManager } from '$lib/managers/search-manager.svelte';
+  import { handlePromiseError } from '$lib/utils';
 
   let filters = $derived(searchManager.filter.location);
   let countries: string[] = $state([]);

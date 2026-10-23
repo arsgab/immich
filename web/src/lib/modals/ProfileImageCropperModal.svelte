@@ -1,11 +1,11 @@
 <script lang="ts">
-  import { authManager } from '$lib/managers/auth-manager.svelte';
-  import { handleError } from '$lib/utils/handle-error';
   import { createProfileImage, type AssetResponseDto } from '@immich/sdk';
   import { FormModal, toastManager } from '@immich/ui';
   import domtoimage from 'dom-to-image';
   import { onMount } from 'svelte';
   import { t } from 'svelte-i18n';
+  import { authManager } from '$lib/managers/auth-manager.svelte';
+  import { handleError } from '$lib/utils/handle-error';
   import PhotoViewer from '../components/asset-viewer/PhotoViewer.svelte';
 
   interface Props {

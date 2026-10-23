@@ -1,4 +1,8 @@
 <script lang="ts">
+  import type { LibraryResponseDto } from '@immich/sdk';
+  import { ContextMenuButton, Link, MenuItemType, TableCell, TableRow } from '@immich/ui';
+  import { createQuery } from '@tanstack/svelte-query';
+  import { t } from 'svelte-i18n';
   import { libraryTableClasses } from '$lib/constants';
   import { createPreloadedQuery } from '$lib/queries/client';
   import { getLibraryStatisticsQuery } from '$lib/queries/library.query';
@@ -7,10 +11,6 @@
   import { getLibraryActions } from '$lib/services/library.service';
   import { locale } from '$lib/stores/preferences.store';
   import { getBytesWithUnit } from '$lib/utils/byte-units';
-  import type { LibraryResponseDto } from '@immich/sdk';
-  import { ContextMenuButton, Link, MenuItemType, TableCell, TableRow } from '@immich/ui';
-  import { createQuery } from '@tanstack/svelte-query';
-  import { t } from 'svelte-i18n';
 
   type Props = {
     library: LibraryResponseDto;

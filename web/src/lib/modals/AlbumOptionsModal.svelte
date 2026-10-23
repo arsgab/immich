@@ -1,11 +1,4 @@
 <script lang="ts">
-  import AlbumSharedLink from '$lib/components/album-page/AlbumSharedLink.svelte';
-  import HeaderActionButton from '$lib/components/HeaderActionButton.svelte';
-  import UserAvatar from '$lib/components/shared-components/UserAvatar.svelte';
-  import { getAlbumActions, handleRemoveUserFromAlbum, handleUpdateUserAlbumRole } from '$lib/services/album.service';
-  import { getAlbumQuery, updateAlbumInfoMutation } from '$lib/queries/album.query';
-  import { executeMutation, queryClient } from '$lib/queries/client';
-  import { getAllSharedLinksQuery } from '$lib/queries/shared-link.query';
   import {
     AlbumUserRole,
     AssetOrder,
@@ -16,6 +9,13 @@
   import { Field, HStack, Modal, ModalBody, Select, Stack, Switch, Text, type SelectOption } from '@immich/ui';
   import { createQuery } from '@tanstack/svelte-query';
   import { t } from 'svelte-i18n';
+  import AlbumSharedLink from '$lib/components/album-page/AlbumSharedLink.svelte';
+  import HeaderActionButton from '$lib/components/HeaderActionButton.svelte';
+  import UserAvatar from '$lib/components/shared-components/UserAvatar.svelte';
+  import { getAlbumQuery, updateAlbumInfoMutation } from '$lib/queries/album.query';
+  import { executeMutation, queryClient } from '$lib/queries/client';
+  import { getAllSharedLinksQuery } from '$lib/queries/shared-link.query';
+  import { getAlbumActions, handleRemoveUserFromAlbum, handleUpdateUserAlbumRole } from '$lib/services/album.service';
 
   type Props = {
     album: AlbumResponseDto;

@@ -1,8 +1,8 @@
 <script lang="ts">
+  import type { AssetResponseDto } from '@immich/sdk';
   import VideoNativeViewer from '$lib/components/asset-viewer/VideoNativeViewer.svelte';
   import VideoPanoramaViewer from '$lib/components/asset-viewer/VideoPanoramaViewer.svelte';
   import { ProjectionType } from '$lib/constants';
-  import type { AssetResponseDto } from '@immich/sdk';
 
   interface Props {
     asset: AssetResponseDto;

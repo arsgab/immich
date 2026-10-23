@@ -1,12 +1,4 @@
 <script lang="ts">
-  import AdminPageLayout from '$lib/components/layouts/AdminPageLayout.svelte';
-  import MaintenanceBackupsList from '$lib/components/maintenance/MaintenanceBackupsList.svelte';
-  import OnEvents from '$lib/components/OnEvents.svelte';
-  import ServerStatisticsCard from '$lib/components/server-statistics/ServerStatisticsCard.svelte';
-  import SettingAccordion from '$lib/components/shared-components/settings/SettingAccordion.svelte';
-  import { Route } from '$lib/route';
-  import { handleCreateJob } from '$lib/services/job.service';
-  import { getMaintenanceAdminActions } from '$lib/services/maintenance.service';
   import {
     getIntegrityReportSummary,
     getQueuesLegacy,
@@ -20,8 +12,16 @@
   import { mdiRefresh } from '@mdi/js';
   import { onMount } from 'svelte';
   import { t, type Translations } from 'svelte-i18n';
-  import type { PageData } from './$types';
   import { SvelteSet } from 'svelte/reactivity';
+  import AdminPageLayout from '$lib/components/layouts/AdminPageLayout.svelte';
+  import MaintenanceBackupsList from '$lib/components/maintenance/MaintenanceBackupsList.svelte';
+  import OnEvents from '$lib/components/OnEvents.svelte';
+  import ServerStatisticsCard from '$lib/components/server-statistics/ServerStatisticsCard.svelte';
+  import SettingAccordion from '$lib/components/shared-components/settings/SettingAccordion.svelte';
+  import { Route } from '$lib/route';
+  import { handleCreateJob } from '$lib/services/job.service';
+  import { getMaintenanceAdminActions } from '$lib/services/maintenance.service';
+  import type { PageData } from './$types';
 
   type Props = {
     data: PageData;

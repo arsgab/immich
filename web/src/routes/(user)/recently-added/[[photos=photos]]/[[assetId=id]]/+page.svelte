@@ -1,4 +1,8 @@
 <script lang="ts">
+  import { AssetVisibility, AssetOrderBy } from '@immich/sdk';
+  import { ActionButton, CommandPaletteDefaultProvider } from '@immich/ui';
+  import { mdiDotsVertical } from '@mdi/js';
+  import { t } from 'svelte-i18n';
   import ActionMenuItem from '$lib/components/ActionMenuItem.svelte';
   import UserPageLayout from '$lib/components/layouts/UserPageLayout.svelte';
   import ButtonContextMenu from '$lib/components/shared-components/context-menu/ButtonContextMenu.svelte';
@@ -20,14 +24,10 @@
   import { assetViewerManager } from '$lib/managers/asset-viewer-manager.svelte';
   import { TimelineManager } from '$lib/managers/timeline-manager/timeline-manager.svelte';
   import { getAssetBulkActions } from '$lib/services/asset.service';
+  import { getStackBulkActions } from '$lib/services/stack.service';
   import { type OnLink, type OnUnlink } from '$lib/utils/actions';
   import { openFileUploadDialog } from '$lib/utils/file-uploader';
-  import { AssetVisibility, AssetOrderBy } from '@immich/sdk';
-  import { ActionButton, CommandPaletteDefaultProvider } from '@immich/ui';
-  import { mdiDotsVertical } from '@mdi/js';
-  import { t } from 'svelte-i18n';
   import type { PageData } from './$types';
-  import { getStackBulkActions } from '$lib/services/stack.service';
 
   type Props = {
     data: PageData;

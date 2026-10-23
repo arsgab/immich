@@ -3,21 +3,21 @@
 </script>
 
 <script lang="ts">
+  import { ActionButton, Button, IconButton, Logo } from '@immich/ui';
+  import { mdiBellBadge, mdiBellOutline, mdiMagnify, mdiMenu, mdiTrayArrowUp } from '@mdi/js';
+  import { createQuery } from '@tanstack/svelte-query';
+  import { t } from 'svelte-i18n';
   import { page } from '$app/state';
   import { clickOutside } from '$lib/actions/click-outside';
   import NotificationPanel from '$lib/components/shared-components/navigation-bar/NotificationPanel.svelte';
   import SearchBar from '$lib/components/shared-components/search-bar/SearchBar.svelte';
   import SkipLink from '$lib/elements/SkipLink.svelte';
   import { authManager } from '$lib/managers/auth-manager.svelte';
+  import { getNotificationsQuery } from '$lib/queries/notification.query';
   import { Route } from '$lib/route';
   import { getGlobalActions } from '$lib/services/app.service';
   import { mediaQueryManager } from '$lib/stores/media-query-manager.svelte';
   import { sidebarStore } from '$lib/stores/sidebar.svelte';
-  import { getNotificationsQuery } from '$lib/queries/notification.query';
-  import { ActionButton, Button, IconButton, Logo } from '@immich/ui';
-  import { createQuery } from '@tanstack/svelte-query';
-  import { mdiBellBadge, mdiBellOutline, mdiMagnify, mdiMenu, mdiTrayArrowUp } from '@mdi/js';
-  import { t } from 'svelte-i18n';
   import ThemeButton from '../ThemeButton.svelte';
   import UserAvatar from '../UserAvatar.svelte';
   import AccountInfoPanel from './AccountInfoPanel.svelte';

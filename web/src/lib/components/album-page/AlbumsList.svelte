@@ -1,4 +1,8 @@
 <script lang="ts">
+  import { type AlbumResponseDto } from '@immich/sdk';
+  import { groupBy } from 'lodash-es';
+  import { onMount, type Snippet } from 'svelte';
+  import { t } from 'svelte-i18n';
   import AlbumCardGroup from '$lib/components/album-page/AlbumCardGroup.svelte';
   import AlbumsTable from '$lib/components/album-page/AlbumsTable.svelte';
   import { authManager } from '$lib/managers/auth-manager.svelte';
@@ -14,10 +18,6 @@
   } from '$lib/stores/preferences.store';
   import { getSelectedAlbumGroupOption, sortAlbums, stringToSortOrder, type AlbumGroup } from '$lib/utils/album-utils';
   import { normalizeSearchString } from '$lib/utils/string-utils';
-  import { type AlbumResponseDto } from '@immich/sdk';
-  import { groupBy } from 'lodash-es';
-  import { onMount, type Snippet } from 'svelte';
-  import { t } from 'svelte-i18n';
 
   interface Props {
     ownedAlbums?: AlbumResponseDto[];

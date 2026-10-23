@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { mapSettings, type MapSettings } from '$lib/stores/preferences.store';
   import { Button, DatePicker, Field, FormModal, Select, Stack, Switch } from '@immich/ui';
   import { DateTime, Duration } from 'luxon';
   import { t } from 'svelte-i18n';
   import { fly } from 'svelte/transition';
+  import { mapSettings, type MapSettings } from '$lib/stores/preferences.store';
 
   type Props = {
     onClose: (settings?: MapSettings) => void;

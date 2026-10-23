@@ -1,22 +1,22 @@
 <script lang="ts">
+  import { t } from 'svelte-i18n';
   import { goto } from '$app/navigation';
   import empty3Url from '$lib/assets/empty-3.svg';
   import UserPageLayout from '$lib/components/layouts/UserPageLayout.svelte';
   import EmptyPlaceholder from '$lib/components/shared-components/EmptyPlaceholder.svelte';
   import DeleteAssets from '$lib/components/timeline/actions/DeleteAssetsAction.svelte';
-  import RestoreAssets from './RestoreAction.svelte';
   import SelectAllAssets from '$lib/components/timeline/actions/SelectAllAction.svelte';
   import AssetSelectControlBar from '$lib/components/timeline/AssetSelectControlBar.svelte';
   import Timeline from '$lib/components/timeline/Timeline.svelte';
   import { assetMultiSelectManager } from '$lib/managers/asset-multi-select-manager.svelte';
   import { TimelineManager } from '$lib/managers/timeline-manager/timeline-manager.svelte';
+  import { createPreloadedQuery } from '$lib/queries/client';
+  import { getUserConfigQuery } from '$lib/queries/config-user.query';
   import { Route } from '$lib/route';
   import { getTrashActions } from '$lib/services/trash.service';
   import { handlePromiseError } from '$lib/utils';
-  import { t } from 'svelte-i18n';
   import type { PageData } from './$types';
-  import { createPreloadedQuery } from '$lib/queries/client';
-  import { getUserConfigQuery } from '$lib/queries/config-user.query';
+  import RestoreAssets from './RestoreAction.svelte';
 
   const query = createPreloadedQuery(getUserConfigQuery);
   const config = $derived(query.data);

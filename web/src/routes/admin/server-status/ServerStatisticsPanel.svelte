@@ -1,10 +1,4 @@
 <script lang="ts">
-  import ServerStatisticsCard from '$lib/components/server-statistics/ServerStatisticsCard.svelte';
-  import { createPreloadedQuery } from '$lib/queries/client';
-  import { getServerStatisticsQuery } from '$lib/queries/server.query';
-  import { searchUsersAdminQuery } from '$lib/queries/user-admin.query';
-  import { locale } from '$lib/stores/preferences.store';
-  import { getBytesWithUnit } from '$lib/utils/byte-units';
   import {
     Code,
     FormatBytes,
@@ -17,9 +11,15 @@
     TableRow,
     Text,
   } from '@immich/ui';
-  import { createQuery } from '@tanstack/svelte-query';
   import { mdiCameraIris, mdiChartPie, mdiPlayCircle } from '@mdi/js';
+  import { createQuery } from '@tanstack/svelte-query';
   import { t } from 'svelte-i18n';
+  import ServerStatisticsCard from '$lib/components/server-statistics/ServerStatisticsCard.svelte';
+  import { createPreloadedQuery } from '$lib/queries/client';
+  import { getServerStatisticsQuery } from '$lib/queries/server.query';
+  import { searchUsersAdminQuery } from '$lib/queries/user-admin.query';
+  import { locale } from '$lib/stores/preferences.store';
+  import { getBytesWithUnit } from '$lib/utils/byte-units';
 
   const queries = {
     users: createPreloadedQuery(searchUsersAdminQuery),

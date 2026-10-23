@@ -1,4 +1,8 @@
 <script lang="ts">
+  import { deleteAssets, type AssetResponseDto } from '@immich/sdk';
+  import { IconButton, modalManager, toastManager } from '@immich/ui';
+  import { mdiDeleteForeverOutline, mdiDeleteOutline } from '@mdi/js';
+  import { t } from 'svelte-i18n';
   import { shortcuts } from '$lib/actions/shortcut';
   import { AssetAction } from '$lib/constants';
   import { featureFlagsManager } from '$lib/managers/feature-flags-manager.svelte';
@@ -7,10 +11,6 @@
   import { deleteAssets as deleteAssetsUtil, type OnUndoDelete } from '$lib/utils/actions';
   import { handleError } from '$lib/utils/handle-error';
   import { toTimelineAsset } from '$lib/utils/timeline-util';
-  import { deleteAssets, type AssetResponseDto } from '@immich/sdk';
-  import { IconButton, modalManager, toastManager } from '@immich/ui';
-  import { mdiDeleteForeverOutline, mdiDeleteOutline } from '@mdi/js';
-  import { t } from 'svelte-i18n';
   import type { OnAction, PreAction } from './action';
 
   interface Props {

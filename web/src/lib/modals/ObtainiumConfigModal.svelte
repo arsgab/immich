@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { createApiKeyMutation } from '$lib/queries/api-key.query';
-  import { executeMutation } from '$lib/queries/client';
   import { Permission } from '@immich/sdk';
   import { Button, Field, Input, Modal, ModalBody, obtainiumBadge, Select, Text } from '@immich/ui';
   import { t } from 'svelte-i18n';
+  import { createApiKeyMutation } from '$lib/queries/api-key.query';
+  import { executeMutation } from '$lib/queries/client';
   let inputUrl = $state(location.origin);
   let inputApiKey = $state('');
   let archVariant = $state('');

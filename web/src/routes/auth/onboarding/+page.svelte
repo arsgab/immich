@@ -1,18 +1,4 @@
 <script lang="ts">
-  import { goto } from '$app/navigation';
-  import { page } from '$app/state';
-  import OnboardingBackup from './OnboardingBackup.svelte';
-  import OnboardingCard from './OnboardingCard.svelte';
-  import OnboardingHello from './OnboardingHello.svelte';
-  import OnboardingLocale from './OnboardingLanguage.svelte';
-  import OnboardingMobileApp from './OnboardingMobileApp.svelte';
-  import OnboardingServerPrivacy from './OnboardingServerPrivacy.svelte';
-  import OnboardingStorageTemplate from './OnboardingStorageTemplate.svelte';
-  import OnboardingTheme from './OnboardingTheme.svelte';
-  import OnboardingUserPrivacy from './OnboardingUserPrivacy.svelte';
-  import { authManager } from '$lib/managers/auth-manager.svelte';
-  import { Route } from '$lib/route';
-  import { OnboardingRole } from '$lib/types';
   import { setUserOnboarding, updateAdminOnboarding } from '@immich/sdk';
   import {
     mdiCellphoneArrowDownVariant,
@@ -23,8 +9,22 @@
     mdiTranslate,
   } from '@mdi/js';
   import { t } from 'svelte-i18n';
+  import { goto } from '$app/navigation';
+  import { page } from '$app/state';
+  import { authManager } from '$lib/managers/auth-manager.svelte';
   import { createPreloadedQuery, queryClient } from '$lib/queries/client';
   import { getServerConfigQuery } from '$lib/queries/server.query';
+  import { Route } from '$lib/route';
+  import { OnboardingRole } from '$lib/types';
+  import OnboardingBackup from './OnboardingBackup.svelte';
+  import OnboardingCard from './OnboardingCard.svelte';
+  import OnboardingHello from './OnboardingHello.svelte';
+  import OnboardingLocale from './OnboardingLanguage.svelte';
+  import OnboardingMobileApp from './OnboardingMobileApp.svelte';
+  import OnboardingServerPrivacy from './OnboardingServerPrivacy.svelte';
+  import OnboardingStorageTemplate from './OnboardingStorageTemplate.svelte';
+  import OnboardingTheme from './OnboardingTheme.svelte';
+  import OnboardingUserPrivacy from './OnboardingUserPrivacy.svelte';
 
   const query = createPreloadedQuery(getServerConfigQuery);
   const serverConfig = $derived(query.data);

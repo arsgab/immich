@@ -1,11 +1,4 @@
 <script lang="ts">
-  import { cleanClass } from '$lib';
-  import QueueCardBadge from './QueueCardBadge.svelte';
-  import QueueCardButton from './QueueCardButton.svelte';
-  import { Route } from '$lib/route';
-  import { asQueueItem } from '$lib/services/queue.service';
-  import { locale } from '$lib/stores/preferences.store';
-  import { transformToTitleCase } from '$lib/utils';
   import { QueueCommand, type QueueCommandDto, type QueueResponseDto } from '@immich/sdk';
   import { Badge, Icon, IconButton, Link } from '@immich/ui';
   import {
@@ -21,6 +14,13 @@
   } from '@mdi/js';
   import { type Component } from 'svelte';
   import { t } from 'svelte-i18n';
+  import { cleanClass } from '$lib';
+  import { Route } from '$lib/route';
+  import { asQueueItem } from '$lib/services/queue.service';
+  import { locale } from '$lib/stores/preferences.store';
+  import { transformToTitleCase } from '$lib/utils';
+  import QueueCardBadge from './QueueCardBadge.svelte';
+  import QueueCardButton from './QueueCardButton.svelte';
 
   interface Props {
     queue: QueueResponseDto;

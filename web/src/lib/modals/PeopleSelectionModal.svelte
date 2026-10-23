@@ -1,8 +1,4 @@
 <script lang="ts">
-  import ImageThumbnail from '$lib/components/assets/thumbnail/ImageThumbnail.svelte';
-  import SearchBar from '$lib/elements/SearchBar.svelte';
-  import { getPeopleThumbnailUrl } from '$lib/utils';
-  import { normalizeSearchString } from '$lib/utils/string-utils';
   import { type PersonResponseDto } from '@immich/sdk';
   import {
     ActionButton,
@@ -17,6 +13,10 @@
   } from '@immich/ui';
   import { mdiCheckAll, mdiCloseBoxMultipleOutline } from '@mdi/js';
   import { t } from 'svelte-i18n';
+  import ImageThumbnail from '$lib/components/assets/thumbnail/ImageThumbnail.svelte';
+  import SearchBar from '$lib/elements/SearchBar.svelte';
+  import { getPeopleThumbnailUrl } from '$lib/utils';
+  import { normalizeSearchString } from '$lib/utils/string-utils';
 
   type Props = {
     people: PersonResponseDto[];

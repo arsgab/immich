@@ -1,14 +1,14 @@
 <script lang="ts">
-  import { goto } from '$app/navigation';
-  import { Route } from '$lib/route';
-  import { createPreloadedQuery, executeMutation } from '$lib/queries/client';
-  import { getStorageQuery } from '$lib/queries/server.query';
-  import { createUserAdminMutation } from '$lib/queries/user-admin.query';
-  import { ByteUnit, convertToBytes } from '$lib/utils/byte-units';
   import { Field, FormModal, HelperText, Input, PasswordInput, Stack, Switch } from '@immich/ui';
   import { createQuery } from '@tanstack/svelte-query';
   import { t } from 'svelte-i18n';
+  import { goto } from '$app/navigation';
+  import { createPreloadedQuery, executeMutation } from '$lib/queries/client';
   import { getUserConfigQuery } from '$lib/queries/config-user.query';
+  import { getStorageQuery } from '$lib/queries/server.query';
+  import { createUserAdminMutation } from '$lib/queries/user-admin.query';
+  import { Route } from '$lib/route';
+  import { ByteUnit, convertToBytes } from '$lib/utils/byte-units';
 
   const queries = {
     config: createPreloadedQuery(getUserConfigQuery),

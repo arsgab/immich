@@ -1,12 +1,12 @@
 <script lang="ts">
-  import SharedLinkFormFields from '$lib/components/SharedLinkFormFields.svelte';
-  import { executeMutation } from '$lib/queries/client';
-  import { createSharedLinkMutation } from '$lib/queries/shared-link.query';
-  import { showSharedLinkQrCode } from '$lib/services/shared-link.service';
   import { SharedLinkType } from '@immich/sdk';
   import { FormModal } from '@immich/ui';
   import { mdiLink } from '@mdi/js';
   import { t } from 'svelte-i18n';
+  import SharedLinkFormFields from '$lib/components/SharedLinkFormFields.svelte';
+  import { executeMutation } from '$lib/queries/client';
+  import { createSharedLinkMutation } from '$lib/queries/shared-link.query';
+  import { showSharedLinkQrCode } from '$lib/services/shared-link.service';
 
   interface Props {
     onClose: () => void;

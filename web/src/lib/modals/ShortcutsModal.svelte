@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { authManager } from '$lib/managers/auth-manager.svelte';
   import { Icon, Modal, ModalBody } from '@immich/ui';
   import { mdiInformationOutline } from '@mdi/js';
   import { t } from 'svelte-i18n';
+  import { authManager } from '$lib/managers/auth-manager.svelte';
 
   interface Shortcuts {
     general: ExplainedShortcut[];

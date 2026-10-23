@@ -1,11 +1,4 @@
 <script lang="ts">
-  import QueueCard from './QueueCard.svelte';
-  import QueueStorageMigrationDescription from './QueueStorageMigrationDescription.svelte';
-  import { queueManager } from '$lib/managers/queue-manager.svelte';
-  import { createPreloadedQuery } from '$lib/queries/client';
-  import { getUserConfigQuery } from '$lib/queries/config-user.query';
-  import { asQueueItem } from '$lib/services/queue.service';
-  import { handleError } from '$lib/utils/handle-error';
   import {
     QueueCommand,
     type QueueCommandDto,
@@ -16,6 +9,13 @@
   import { modalManager, toastManager } from '@immich/ui';
   import type { Component } from 'svelte';
   import { t } from 'svelte-i18n';
+  import { queueManager } from '$lib/managers/queue-manager.svelte';
+  import { createPreloadedQuery } from '$lib/queries/client';
+  import { getUserConfigQuery } from '$lib/queries/config-user.query';
+  import { asQueueItem } from '$lib/services/queue.service';
+  import { handleError } from '$lib/utils/handle-error';
+  import QueueCard from './QueueCard.svelte';
+  import QueueStorageMigrationDescription from './QueueStorageMigrationDescription.svelte';
 
   type Props = {
     queues: QueueResponseDto[];

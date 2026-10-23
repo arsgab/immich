@@ -1,15 +1,4 @@
 <script lang="ts">
-  import { fade } from 'svelte/transition';
-
-  import PurchaseContent from '$lib/components/shared-components/purchasing/PurchaseContent.svelte';
-  import SettingSwitch from '$lib/components/shared-components/settings/SettingSwitch.svelte';
-  import { dateFormats } from '$lib/constants';
-  import { authManager } from '$lib/managers/auth-manager.svelte';
-  import { getAboutInfoQuery } from '$lib/queries/server.query';
-  import { queryClient } from '$lib/queries/client';
-  import { locale } from '$lib/stores/preferences.store';
-  import { handleError } from '$lib/utils/handle-error';
-  import { setSupportBadgeVisibility } from '$lib/utils/purchase-utils';
   import {
     deleteUserLicense as deleteIndividualProductKey,
     deleteServerLicense as deleteServerProductKey,
@@ -22,6 +11,16 @@
   import { mdiKey } from '@mdi/js';
   import { onMount } from 'svelte';
   import { t } from 'svelte-i18n';
+  import { fade } from 'svelte/transition';
+  import PurchaseContent from '$lib/components/shared-components/purchasing/PurchaseContent.svelte';
+  import SettingSwitch from '$lib/components/shared-components/settings/SettingSwitch.svelte';
+  import { dateFormats } from '$lib/constants';
+  import { authManager } from '$lib/managers/auth-manager.svelte';
+  import { queryClient } from '$lib/queries/client';
+  import { getAboutInfoQuery } from '$lib/queries/server.query';
+  import { locale } from '$lib/stores/preferences.store';
+  import { handleError } from '$lib/utils/handle-error';
+  import { setSupportBadgeVisibility } from '$lib/utils/purchase-utils';
 
   let isServerProduct = $state(false);
   let serverPurchaseInfo: LicenseResponseDto | null = $state(null);

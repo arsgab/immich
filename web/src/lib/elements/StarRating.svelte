@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { focusOutside } from '$lib/actions/focus-outside';
-  import { shortcuts } from '$lib/actions/shortcut';
-  import { generateId } from '$lib/utils/generate-id';
   import { Icon } from '@immich/ui';
   import { mdiStar, mdiStarOutline } from '@mdi/js';
   import { t } from 'svelte-i18n';
+  import { focusOutside } from '$lib/actions/focus-outside';
+  import { shortcuts } from '$lib/actions/shortcut';
+  import { generateId } from '$lib/utils/generate-id';
 
   export type Rating = -1 | 1 | 2 | 3 | 4 | 5 | null;
 

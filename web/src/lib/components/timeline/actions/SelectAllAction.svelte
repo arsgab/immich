@@ -1,10 +1,10 @@
 <script lang="ts">
-  import type { AssetMultiSelectManager } from '$lib/managers/asset-multi-select-manager.svelte';
-  import { TimelineManager } from '$lib/managers/timeline-manager/timeline-manager.svelte';
-  import { selectAllAssets } from '$lib/utils/asset-utils';
   import { Button, IconButton } from '@immich/ui';
   import { mdiSelectAll, mdiSelectRemove } from '@mdi/js';
   import { t } from 'svelte-i18n';
+  import type { AssetMultiSelectManager } from '$lib/managers/asset-multi-select-manager.svelte';
+  import { TimelineManager } from '$lib/managers/timeline-manager/timeline-manager.svelte';
+  import { selectAllAssets } from '$lib/utils/asset-utils';
 
   type Props = {
     timelineManager: TimelineManager;

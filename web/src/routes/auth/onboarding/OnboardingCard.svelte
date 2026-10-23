@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { languageManager } from '$lib/managers/language-manager.svelte';
   import { Button, Icon } from '@immich/ui';
   import { mdiArrowLeft, mdiArrowRight, mdiCheck } from '@mdi/js';
   import type { Snippet } from 'svelte';
   import { t } from 'svelte-i18n';
   import { fade } from 'svelte/transition';
+  import { languageManager } from '$lib/managers/language-manager.svelte';
 
   interface Props {
     title?: string | undefined;

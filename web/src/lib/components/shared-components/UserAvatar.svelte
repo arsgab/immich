@@ -3,9 +3,9 @@
 </script>
 
 <script lang="ts">
-  import { getProfileImageUrl } from '$lib/utils';
   import { type UserAvatarColor } from '@immich/sdk';
   import { t } from 'svelte-i18n';
+  import { getProfileImageUrl } from '$lib/utils';
 
   interface User {
     id: string;

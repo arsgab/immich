@@ -1,11 +1,4 @@
 <script lang="ts">
-  import emptyWorkflows from '$lib/assets/empty-workflows.svg';
-  import UserPageLayout from '$lib/components/layouts/UserPageLayout.svelte';
-  import EmptyPlaceholder from '$lib/components/shared-components/EmptyPlaceholder.svelte';
-  import { createPreloadedQuery, queryClient } from '$lib/queries/client';
-  import { getWorkflowForShareQuery, searchWorkflowsQuery } from '$lib/queries/workflow.query';
-  import { Route } from '$lib/route';
-  import { getWorkflowActions, getWorkflowsActions, getWorkflowShowSchemaAction } from '$lib/services/workflow.service';
   import {
     Badge,
     Button,
@@ -22,6 +15,13 @@
   import { mdiClose, mdiFlashOutline } from '@mdi/js';
   import { t } from 'svelte-i18n';
   import { SvelteSet } from 'svelte/reactivity';
+  import emptyWorkflows from '$lib/assets/empty-workflows.svg';
+  import UserPageLayout from '$lib/components/layouts/UserPageLayout.svelte';
+  import EmptyPlaceholder from '$lib/components/shared-components/EmptyPlaceholder.svelte';
+  import { createPreloadedQuery, queryClient } from '$lib/queries/client';
+  import { getWorkflowForShareQuery, searchWorkflowsQuery } from '$lib/queries/workflow.query';
+  import { Route } from '$lib/route';
+  import { getWorkflowActions, getWorkflowsActions, getWorkflowShowSchemaAction } from '$lib/services/workflow.service';
   import type { PageData } from './$types';
 
   type Props = {

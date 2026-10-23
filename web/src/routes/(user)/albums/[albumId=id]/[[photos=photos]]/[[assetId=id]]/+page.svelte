@@ -1,6 +1,24 @@
 <script lang="ts">
+  import { AlbumUserRole, AssetVisibility } from '@immich/sdk';
+  import { ActionButton, CommandPaletteDefaultProvider, Icon, IconButton } from '@immich/ui';
+  import {
+    mdiAccountEye,
+    mdiAccountEyeOutline,
+    mdiArrowLeft,
+    mdiDotsHorizontal,
+    mdiDotsVertical,
+    mdiImageOutline,
+    mdiImagePlusOutline,
+    mdiLink,
+    mdiPlus,
+    mdiPresentationPlay,
+  } from '@mdi/js';
+  import { onDestroy } from 'svelte';
+  import { t } from 'svelte-i18n';
+  import { fly } from 'svelte/transition';
   import { goto, onNavigate } from '$app/navigation';
   import { scrollMemoryClearer } from '$lib/actions/scroll-memory';
+  import ActionMenuItem from '$lib/components/ActionMenuItem.svelte';
   import AlbumMap from '$lib/components/album-page/AlbumMap.svelte';
   import AlbumSummary from '$lib/components/album-page/AlbumSummary.svelte';
   import ActivityStatus from '$lib/components/asset-viewer/ActivityStatus.svelte';
@@ -29,36 +47,6 @@
   import { authManager } from '$lib/managers/auth-manager.svelte';
   import { TimelineManager } from '$lib/managers/timeline-manager/timeline-manager.svelte';
   import type { TimelineAsset } from '$lib/managers/timeline-manager/types';
-  import { Route } from '$lib/route';
-  import { getAlbumActions, getAlbumAssetsActions, isAlbumEditor, isAlbumOwner } from '$lib/services/album.service';
-  import { getGlobalActions } from '$lib/services/app.service';
-  import { getAssetBulkActions } from '$lib/services/asset.service';
-  import { SlideshowNavigation, SlideshowState, slideshowStore } from '$lib/stores/slideshow.store';
-  import { handlePromiseError } from '$lib/utils';
-  import { handleError } from '$lib/utils/handle-error';
-  import { isAlbumsRoute, navigate, type AssetGridRouteSearchParams } from '$lib/utils/navigation';
-  import { AlbumUserRole, AssetVisibility } from '@immich/sdk';
-  import { ActionButton, CommandPaletteDefaultProvider, Icon, IconButton } from '@immich/ui';
-  import {
-    mdiAccountEye,
-    mdiAccountEyeOutline,
-    mdiArrowLeft,
-    mdiDotsHorizontal,
-    mdiDotsVertical,
-    mdiImageOutline,
-    mdiImagePlusOutline,
-    mdiLink,
-    mdiPlus,
-    mdiPresentationPlay,
-  } from '@mdi/js';
-  import { onDestroy } from 'svelte';
-  import { t } from 'svelte-i18n';
-  import { fly } from 'svelte/transition';
-  import type { PageProps } from './$types';
-  import AlbumDescription from './AlbumDescription.svelte';
-  import AlbumTitle from './AlbumTitle.svelte';
-  import ActionMenuItem from '$lib/components/ActionMenuItem.svelte';
-  import { delay } from '$lib/utils/asset-utils';
   import {
     deleteAlbumMutation,
     getAlbumInfoQuery,
@@ -67,6 +55,18 @@
   } from '$lib/queries/album.query';
   import { createPreloadedQuery, executeMutation } from '$lib/queries/client';
   import { getUserConfigQuery } from '$lib/queries/config-user.query';
+  import { Route } from '$lib/route';
+  import { getAlbumActions, getAlbumAssetsActions, isAlbumEditor, isAlbumOwner } from '$lib/services/album.service';
+  import { getGlobalActions } from '$lib/services/app.service';
+  import { getAssetBulkActions } from '$lib/services/asset.service';
+  import { SlideshowNavigation, SlideshowState, slideshowStore } from '$lib/stores/slideshow.store';
+  import { handlePromiseError } from '$lib/utils';
+  import { delay } from '$lib/utils/asset-utils';
+  import { handleError } from '$lib/utils/handle-error';
+  import { isAlbumsRoute, navigate, type AssetGridRouteSearchParams } from '$lib/utils/navigation';
+  import type { PageProps } from './$types';
+  import AlbumDescription from './AlbumDescription.svelte';
+  import AlbumTitle from './AlbumTitle.svelte';
 
   let { params }: PageProps = $props();
 

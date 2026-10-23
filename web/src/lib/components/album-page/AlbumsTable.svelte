@@ -1,4 +1,8 @@
 <script lang="ts">
+  import { Icon } from '@immich/ui';
+  import { mdiChevronRight } from '@mdi/js';
+  import { t } from 'svelte-i18n';
+  import { slide } from 'svelte/transition';
   import AlbumTableHeader from '$lib/components/album-page/AlbumsTableHeader.svelte';
   import AlbumTableRow from '$lib/components/album-page/AlbumsTableRow.svelte';
   import { AlbumGroupBy, albumViewSettings } from '$lib/stores/preferences.store';
@@ -8,10 +12,6 @@
     toggleAlbumGroupCollapsing,
     type AlbumGroup,
   } from '$lib/utils/album-utils';
-  import { Icon } from '@immich/ui';
-  import { mdiChevronRight } from '@mdi/js';
-  import { t } from 'svelte-i18n';
-  import { slide } from 'svelte/transition';
 
   type Props = {
     groupedAlbums: AlbumGroup[];

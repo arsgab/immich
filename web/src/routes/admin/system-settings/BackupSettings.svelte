@@ -1,17 +1,17 @@
 <script lang="ts">
-  import { createPreloadedQuery } from '$lib/queries/client';
-  import { getAdminConfigQuery } from '$lib/queries/config-admin.query';
+  import { Link } from '@immich/ui';
   import { cloneDeep } from 'lodash-es';
-  import SettingButtonsRow from '$lib/components/shared-components/settings/SystemConfigButtonRow.svelte';
+  import { t } from 'svelte-i18n';
+  import { fade } from 'svelte/transition';
   import SettingInputField from '$lib/components/shared-components/settings/SettingInputField.svelte';
-  import SettingSelect from './SettingSelect.svelte';
   import SettingSwitch from '$lib/components/shared-components/settings/SettingSwitch.svelte';
+  import SettingButtonsRow from '$lib/components/shared-components/settings/SystemConfigButtonRow.svelte';
   import { SettingInputFieldType } from '$lib/constants';
   import FormatMessage from '$lib/elements/FormatMessage.svelte';
   import { featureFlagsManager } from '$lib/managers/feature-flags-manager.svelte';
-  import { Link } from '@immich/ui';
-  import { t } from 'svelte-i18n';
-  import { fade } from 'svelte/transition';
+  import { createPreloadedQuery } from '$lib/queries/client';
+  import { getAdminConfigQuery } from '$lib/queries/config-admin.query';
+  import SettingSelect from './SettingSelect.svelte';
 
   const query = createPreloadedQuery(getAdminConfigQuery);
   const config = $derived(query.data);

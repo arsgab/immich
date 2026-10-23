@@ -1,12 +1,12 @@
 <script lang="ts">
-  import MenuOption from '$lib/components/shared-components/context-menu/MenuOption.svelte';
-  import { AssetAction } from '$lib/constants';
-  import { handleError } from '$lib/utils/handle-error';
-  import { toTimelineAsset } from '$lib/utils/timeline-util';
   import { restoreAssets, type AssetResponseDto } from '@immich/sdk';
   import { toastManager } from '@immich/ui';
   import { mdiHistory } from '@mdi/js';
   import { t } from 'svelte-i18n';
+  import MenuOption from '$lib/components/shared-components/context-menu/MenuOption.svelte';
+  import { AssetAction } from '$lib/constants';
+  import { handleError } from '$lib/utils/handle-error';
+  import { toTimelineAsset } from '$lib/utils/timeline-util';
   import type { OnAction } from './action';
 
   interface Props {

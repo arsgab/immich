@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { copyToClipboard } from '$lib/utils';
   import {
     Card,
     CardBody,
@@ -15,6 +14,7 @@
   } from '@immich/ui';
   import { mdiAlarmLight, mdiCodeTags, mdiContentCopy, mdiMessage, mdiPartyPopper } from '@mdi/js';
   import { t } from 'svelte-i18n';
+  import { copyToClipboard } from '$lib/utils';
 
   interface Props {
     error?: { message: string; code?: string | number; stack?: string } | undefined | null;

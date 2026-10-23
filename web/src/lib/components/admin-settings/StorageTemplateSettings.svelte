@@ -1,4 +1,13 @@
 <script lang="ts">
+  import { getStorageTemplateOptions, type SystemConfigTemplateStorageOptionDto } from '@immich/sdk';
+  import { Code, Heading, IconButton, Link, modalManager, Text } from '@immich/ui';
+  import { mdiInformationOutline } from '@mdi/js';
+  import handlebar from 'handlebars';
+  import { cloneDeep } from 'lodash-es';
+  import * as luxon from 'luxon';
+  import { onDestroy } from 'svelte';
+  import { t } from 'svelte-i18n';
+  import { fade, slide } from 'svelte/transition';
   import SettingInputField from '$lib/components/shared-components/settings/SettingInputField.svelte';
   import SettingSwitch from '$lib/components/shared-components/settings/SettingSwitch.svelte';
   import SettingButtonsRow from '$lib/components/shared-components/settings/SystemConfigButtonRow.svelte';
@@ -6,19 +15,10 @@
   import FormatMessage from '$lib/elements/FormatMessage.svelte';
   import { authManager } from '$lib/managers/auth-manager.svelte';
   import { featureFlagsManager } from '$lib/managers/feature-flags-manager.svelte';
+  import StorageTemplateVariablesModal from '$lib/modals/StorageTemplateVariablesModal.svelte';
   import { createPreloadedQuery, executeMutation } from '$lib/queries/client';
   import { getAdminConfigQuery, updateAdminConfigMutation } from '$lib/queries/config-admin.query';
-  import StorageTemplateVariablesModal from '$lib/modals/StorageTemplateVariablesModal.svelte';
   import { Route } from '$lib/route';
-  import { getStorageTemplateOptions, type SystemConfigTemplateStorageOptionDto } from '@immich/sdk';
-  import { cloneDeep } from 'lodash-es';
-  import { Code, Heading, IconButton, Link, modalManager, Text } from '@immich/ui';
-  import { mdiInformationOutline } from '@mdi/js';
-  import handlebar from 'handlebars';
-  import * as luxon from 'luxon';
-  import { onDestroy } from 'svelte';
-  import { t } from 'svelte-i18n';
-  import { fade, slide } from 'svelte/transition';
 
   type Props = {
     minified?: boolean;

@@ -1,6 +1,11 @@
 <script lang="ts">
+  import { getAssetInfo, type AssetResponseDto } from '@immich/sdk';
+  import { Button, Icon } from '@immich/ui';
+  import { mdiCheck, mdiChevronDown, mdiChevronUp, mdiImageMultipleOutline, mdiTrashCanOutline } from '@mdi/js';
+  import { onDestroy, onMount } from 'svelte';
+  import { t } from 'svelte-i18n';
+  import { SvelteSet } from 'svelte/reactivity';
   import { shortcuts } from '$lib/actions/shortcut';
-  import DuplicateAsset from './DuplicateAsset.svelte';
   import Portal from '$lib/elements/Portal.svelte';
   import { assetViewerManager } from '$lib/managers/asset-viewer-manager.svelte';
   import { authManager } from '$lib/managers/auth-manager.svelte';
@@ -12,12 +17,7 @@
     type DifferingMetadataFields,
   } from '$lib/utils/duplicate-utils';
   import { navigate } from '$lib/utils/navigation';
-  import { getAssetInfo, type AssetResponseDto } from '@immich/sdk';
-  import { Button, Icon } from '@immich/ui';
-  import { mdiCheck, mdiChevronDown, mdiChevronUp, mdiImageMultipleOutline, mdiTrashCanOutline } from '@mdi/js';
-  import { onDestroy, onMount } from 'svelte';
-  import { t } from 'svelte-i18n';
-  import { SvelteSet } from 'svelte/reactivity';
+  import DuplicateAsset from './DuplicateAsset.svelte';
 
   interface Props {
     assets: AssetResponseDto[];

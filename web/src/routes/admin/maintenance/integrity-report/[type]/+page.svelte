@@ -1,14 +1,14 @@
 <script lang="ts">
+  import { getIntegrityReport, getQueuesLegacy, IntegrityReport } from '@immich/sdk';
+  import { Button, Table, TableBody, TableHeader, TableHeading } from '@immich/ui';
+  import { onDestroy, onMount } from 'svelte';
+  import { t } from 'svelte-i18n';
   import AdminPageLayout from '$lib/components/layouts/AdminPageLayout.svelte';
   import IntegrityReportTableItem from '$lib/components/maintenance/integrity/IntegrityReportTableItem.svelte';
   import OnEvents from '$lib/components/OnEvents.svelte';
   import { Route } from '$lib/route';
   import { getIntegrityReportActions } from '$lib/services/integrity.service';
   import { asyncTimeout } from '$lib/utils';
-  import { getIntegrityReport, getQueuesLegacy, IntegrityReport } from '@immich/sdk';
-  import { Button, Table, TableBody, TableHeader, TableHeading } from '@immich/ui';
-  import { onDestroy, onMount } from 'svelte';
-  import { t } from 'svelte-i18n';
   import type { PageData } from './$types';
 
   type Props = {

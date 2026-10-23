@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { shortcut } from '$lib/actions/shortcut';
-  import { updateAlbumInfoMutation } from '$lib/queries/album.query';
-  import { executeMutation } from '$lib/queries/client';
   import { Textarea } from '@immich/ui';
   import { t } from 'svelte-i18n';
   import { fromAction } from 'svelte/attachments';
+  import { shortcut } from '$lib/actions/shortcut';
+  import { updateAlbumInfoMutation } from '$lib/queries/album.query';
+  import { executeMutation } from '$lib/queries/client';
 
   type Props = {
     id: string;

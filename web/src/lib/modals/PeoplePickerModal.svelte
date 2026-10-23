@@ -1,13 +1,13 @@
 <script lang="ts">
+  import { getAllPeople, type PersonResponseDto } from '@immich/sdk';
+  import { Button, HStack, LoadingSpinner, Modal, ModalBody, ModalFooter } from '@immich/ui';
+  import { onMount } from 'svelte';
+  import { t } from 'svelte-i18n';
   import ImageThumbnail from '$lib/components/assets/thumbnail/ImageThumbnail.svelte';
   import SearchBar from '$lib/elements/SearchBar.svelte';
   import { getPeopleThumbnailUrl } from '$lib/utils';
   import { handleError } from '$lib/utils/handle-error';
   import { normalizeSearchString } from '$lib/utils/string-utils';
-  import { getAllPeople, type PersonResponseDto } from '@immich/sdk';
-  import { Button, HStack, LoadingSpinner, Modal, ModalBody, ModalFooter } from '@immich/ui';
-  import { onMount } from 'svelte';
-  import { t } from 'svelte-i18n';
 
   type Props = {
     multiple?: boolean;

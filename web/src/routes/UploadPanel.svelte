@@ -1,13 +1,13 @@
 <script lang="ts">
-  import { locale } from '$lib/stores/preferences.store';
-  import { uploadAssetsStore } from '$lib/stores/upload';
-  import { uploadExecutionQueue } from '$lib/utils/file-uploader';
-  import { acquireWakeLock, releaseWakeLock } from '$lib/utils/wakelock.svelte';
   import { Icon, IconButton, toastManager } from '@immich/ui';
   import { mdiCancel, mdiCloudUploadOutline, mdiCog, mdiWindowMinimize } from '@mdi/js';
   import { t } from 'svelte-i18n';
   import { quartInOut } from 'svelte/easing';
   import { fade, scale } from 'svelte/transition';
+  import { locale } from '$lib/stores/preferences.store';
+  import { uploadAssetsStore } from '$lib/stores/upload';
+  import { uploadExecutionQueue } from '$lib/utils/file-uploader';
+  import { acquireWakeLock, releaseWakeLock } from '$lib/utils/wakelock.svelte';
   import UploadAssetPreview from './UploadAssetPreview.svelte';
 
   let showDetail = $state(false);

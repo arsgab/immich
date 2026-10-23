@@ -1,9 +1,9 @@
 <script lang="ts">
-  import FormatMessage from '$lib/elements/FormatMessage.svelte';
-  import { showDeleteModal } from '$lib/stores/preferences.store';
   import { Checkbox, ConfirmModal, Label } from '@immich/ui';
   import { mdiDeleteForeverOutline } from '@mdi/js';
   import { t } from 'svelte-i18n';
+  import FormatMessage from '$lib/elements/FormatMessage.svelte';
+  import { showDeleteModal } from '$lib/stores/preferences.store';
 
   type Props = {
     size: number;

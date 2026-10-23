@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { getAlbumDateRange } from '$lib/utils/date-time';
   import type { AlbumResponseDto } from '@immich/sdk';
   import { t } from 'svelte-i18n';
+  import { getAlbumDateRange } from '$lib/utils/date-time';
 
   type Props = {
     album: AlbumResponseDto;

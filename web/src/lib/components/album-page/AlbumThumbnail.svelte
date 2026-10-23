@@ -1,11 +1,11 @@
 <script lang="ts">
-  import AlbumCover from '$lib/components/album-page/AlbumCover.svelte';
-  import { getAlbumQuery } from '$lib/queries/album.query';
-  import { queryClient } from '$lib/queries/client';
   import { IconButton, Text, LoadingSpinner } from '@immich/ui';
   import { mdiTrashCanOutline } from '@mdi/js';
   import { createQuery } from '@tanstack/svelte-query';
   import { t } from 'svelte-i18n';
+  import AlbumCover from '$lib/components/album-page/AlbumCover.svelte';
+  import { getAlbumQuery } from '$lib/queries/album.query';
+  import { queryClient } from '$lib/queries/client';
 
   interface Props {
     albumId: string;

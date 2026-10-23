@@ -1,4 +1,8 @@
 <script lang="ts">
+  import { Code, CommandPaletteDefaultProvider, Container, Heading, modalManager } from '@immich/ui';
+  import { mdiCameraIris, mdiChartPie, mdiFilterMinusOutline, mdiFolderOutline, mdiPlayCircle } from '@mdi/js';
+  import { createQuery } from '@tanstack/svelte-query';
+  import { t } from 'svelte-i18n';
   import emptyFoldersUrl from '$lib/assets/empty-folders.svg';
   import AdminCard from '$lib/components/AdminCard.svelte';
   import AdminPageLayout from '$lib/components/layouts/AdminPageLayout.svelte';
@@ -15,10 +19,6 @@
     getLibraryFolderActions,
   } from '$lib/services/library.service';
   import { getBytesWithUnit } from '$lib/utils/byte-units';
-  import { Code, CommandPaletteDefaultProvider, Container, Heading, modalManager } from '@immich/ui';
-  import { createQuery } from '@tanstack/svelte-query';
-  import { mdiCameraIris, mdiChartPie, mdiFilterMinusOutline, mdiFolderOutline, mdiPlayCircle } from '@mdi/js';
-  import { t } from 'svelte-i18n';
   import type { LayoutProps } from './$types';
 
   const { children, params }: LayoutProps = $props();

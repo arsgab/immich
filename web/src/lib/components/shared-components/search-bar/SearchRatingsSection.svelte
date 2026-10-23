@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { searchManager } from '$lib/managers/search-manager.svelte';
   import { Text } from '@immich/ui';
   import { t } from 'svelte-i18n';
+  import { searchManager } from '$lib/managers/search-manager.svelte';
   import SearchButton from './SearchButton.svelte';
 
   let rating = $derived(searchManager.filter.rating);

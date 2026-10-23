@@ -55,7 +55,7 @@ For an easy setup:
 - Create the parent dataset `immich` keeping the default **Generic** preset.
 - Select `Dataset Preset` **Apps** instead of **Generic** when creating the `data` dataset. This will automatically give the correct permissions to the dataset. If you want to use another user for Immich, you can keep the **Generic** preset, but you will need to give the **_modify_** permission to that other user.
 - For the `pgData` dataset, you can keep the default preset **Generic** as permissions can be set during the installation of the Immich app (See [Storage Configuration](#storage-configuration) section).
-  :::
+:::
 
 :::tip
 To improve performance, Immich recommends using SSDs for the database. If you have a pool made of SSDs, you can create the `pgData` dataset on that pool.

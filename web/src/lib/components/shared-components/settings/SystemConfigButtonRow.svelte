@@ -1,15 +1,15 @@
 <script lang="ts">
+  import type { AdminConfigDto } from '@immich/sdk';
+  import { Button, toastManager } from '@immich/ui';
+  import { createMutation } from '@tanstack/svelte-query';
+  import { cloneDeep, isEqual, pick } from 'lodash-es';
+  import { t } from 'svelte-i18n';
   import { createPreloadedQuery } from '$lib/queries/client';
   import {
     getAdminConfigDefaultsQuery,
     getAdminConfigQuery,
     updateAdminConfigMutation,
   } from '$lib/queries/config-admin.query';
-  import type { AdminConfigDto } from '@immich/sdk';
-  import { Button, toastManager } from '@immich/ui';
-  import { createMutation } from '@tanstack/svelte-query';
-  import { cloneDeep, isEqual, pick } from 'lodash-es';
-  import { t } from 'svelte-i18n';
 
   type Props = {
     disabled?: boolean;

@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { cleanClass } from '$lib';
   import { Icon, LoadingSpinner } from '@immich/ui';
   import { mdiAlertCircleOutline, mdiPauseCircleOutline, mdiPlayCircleOutline } from '@mdi/js';
   import { Duration } from 'luxon';
   import type { ClassValue } from 'svelte/elements';
+  import { cleanClass } from '$lib';
 
   interface Props {
     url: string;

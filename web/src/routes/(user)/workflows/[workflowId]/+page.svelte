@@ -1,14 +1,4 @@
 <script lang="ts">
-  import { beforeNavigate, goto } from '$app/navigation';
-  import WorkflowAddStepModal from '$lib/modals/WorkflowAddStepModal.svelte';
-  import WorkflowEditStepModal from '$lib/modals/WorkflowEditStepModal.svelte';
-  import WorkflowTriggerPicker from '$lib/modals/WorkflowTriggerPicker.svelte';
-  import { createPreloadedQuery, executeMutation } from '$lib/queries/client';
-  import { getWorkflowQuery, updateWorkflowMutation } from '$lib/queries/workflow.query';
-  import { Route } from '$lib/route';
-  import { getWorkflowActions } from '$lib/services/workflow.service';
-  import { generateId } from '$lib/utils/generate-id';
-  import { getTriggerDescription, getTriggerName } from '$lib/utils/workflow';
   import type { WorkflowUpdateDto } from '@immich/sdk';
   import {
     ActionBar,
@@ -47,6 +37,16 @@
   import { cloneDeep, isEqual } from 'lodash-es';
   import { t } from 'svelte-i18n';
   import { flip } from 'svelte/animate';
+  import { beforeNavigate, goto } from '$app/navigation';
+  import WorkflowAddStepModal from '$lib/modals/WorkflowAddStepModal.svelte';
+  import WorkflowEditStepModal from '$lib/modals/WorkflowEditStepModal.svelte';
+  import WorkflowTriggerPicker from '$lib/modals/WorkflowTriggerPicker.svelte';
+  import { createPreloadedQuery, executeMutation } from '$lib/queries/client';
+  import { getWorkflowQuery, updateWorkflowMutation } from '$lib/queries/workflow.query';
+  import { Route } from '$lib/route';
+  import { getWorkflowActions } from '$lib/services/workflow.service';
+  import { generateId } from '$lib/utils/generate-id';
+  import { getTriggerDescription, getTriggerName } from '$lib/utils/workflow';
   import type { PageProps } from './$types';
   import WorkflowJsonEditor from './WorkflowJsonEditor.svelte';
   import WorkflowStepCard from './WorkflowStepCard.svelte';

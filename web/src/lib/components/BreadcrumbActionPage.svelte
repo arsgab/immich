@@ -1,5 +1,4 @@
 <script lang="ts">
-  import type { HeaderButtonActionItem } from '$lib/types';
   import {
     Breadcrumbs,
     Button,
@@ -14,6 +13,7 @@
   import { mdiSlashForward } from '@mdi/js';
   import type { Snippet } from 'svelte';
   import { t } from 'svelte-i18n';
+  import type { HeaderButtonActionItem } from '$lib/types';
 
   type Props = {
     breadcrumbs?: BreadcrumbItem[];

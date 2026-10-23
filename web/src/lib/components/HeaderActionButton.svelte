@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { HeaderButtonActionItem } from '$lib/types';
   import { Button, type Variants } from '@immich/ui';
+  import type { HeaderButtonActionItem } from '$lib/types';
 
   type Props = {
     action: HeaderButtonActionItem;

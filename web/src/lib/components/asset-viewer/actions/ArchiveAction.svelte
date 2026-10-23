@@ -1,13 +1,13 @@
 <script lang="ts">
+  import type { AssetResponseDto } from '@immich/sdk';
+  import { mdiArchiveArrowDownOutline, mdiArchiveArrowUpOutline } from '@mdi/js';
+  import { t } from 'svelte-i18n';
   import { shortcut } from '$lib/actions/shortcut';
   import type { OnAction, PreAction } from '$lib/components/asset-viewer/actions/action';
   import MenuOption from '$lib/components/shared-components/context-menu/MenuOption.svelte';
   import { AssetAction } from '$lib/constants';
   import { toggleArchive } from '$lib/utils/asset-utils';
   import { toTimelineAsset } from '$lib/utils/timeline-util';
-  import type { AssetResponseDto } from '@immich/sdk';
-  import { mdiArchiveArrowDownOutline, mdiArchiveArrowUpOutline } from '@mdi/js';
-  import { t } from 'svelte-i18n';
 
   interface Props {
     asset: AssetResponseDto;

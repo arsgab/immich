@@ -1,4 +1,9 @@
 <script lang="ts">
+  import { type AssetResponseDto } from '@immich/sdk';
+  import { IconButton, Text } from '@immich/ui';
+  import { mdiEye, mdiEyeOff, mdiPencil, mdiPlus } from '@mdi/js';
+  import { DateTime } from 'luxon';
+  import { t } from 'svelte-i18n';
   import ImageThumbnail from '$lib/components/assets/thumbnail/ImageThumbnail.svelte';
   import { assetViewerManager } from '$lib/managers/asset-viewer-manager.svelte';
   import { authManager } from '$lib/managers/auth-manager.svelte';
@@ -6,11 +11,6 @@
   import { faceManager } from '$lib/stores/face.svelte';
   import { locale } from '$lib/stores/preferences.store';
   import { getPeopleThumbnailUrl } from '$lib/utils';
-  import { type AssetResponseDto } from '@immich/sdk';
-  import { IconButton, Text } from '@immich/ui';
-  import { mdiEye, mdiEyeOff, mdiPencil, mdiPlus } from '@mdi/js';
-  import { DateTime } from 'luxon';
-  import { t } from 'svelte-i18n';
 
   type Props = {
     asset: AssetResponseDto;

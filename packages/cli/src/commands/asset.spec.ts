@@ -1,9 +1,3 @@
-import fs from 'node:fs';
-import os from 'node:os';
-import path from 'node:path';
-import { setTimeout as sleep } from 'node:timers/promises';
-import { describe, expect, it, MockedFunction, vi } from 'vitest';
-
 import {
   AssetRejectReason,
   AssetUploadAction,
@@ -12,8 +6,6 @@ import {
   defaults,
   getSupportedMediaTypes,
 } from '@immich/sdk';
-import createFetchMock from 'vitest-fetch-mock';
-
 import {
   checkForDuplicates,
   deleteFiles,
@@ -23,6 +15,12 @@ import {
   uploadFiles,
   UploadOptionsDto,
 } from 'src/commands/asset';
+import { describe, expect, it, MockedFunction, vi } from 'vitest';
+import createFetchMock from 'vitest-fetch-mock';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { setTimeout as sleep } from 'node:timers/promises';
 
 vi.mock('@immich/sdk');
 

@@ -1,4 +1,7 @@
 <script lang="ts">
+  import { AssetVisibility } from '@immich/sdk';
+  import { mdiDotsVertical } from '@mdi/js';
+  import { t } from 'svelte-i18n';
   import { goto } from '$app/navigation';
   import UserPageLayout from '$lib/components/layouts/UserPageLayout.svelte';
   import OnEvents from '$lib/components/OnEvents.svelte';
@@ -17,9 +20,6 @@
   import { TimelineManager } from '$lib/managers/timeline-manager/timeline-manager.svelte';
   import { Route } from '$lib/route';
   import { getUserActions } from '$lib/services/user.service';
-  import { AssetVisibility } from '@immich/sdk';
-  import { mdiDotsVertical } from '@mdi/js';
-  import { t } from 'svelte-i18n';
   import type { PageData } from './$types';
 
   interface Props {

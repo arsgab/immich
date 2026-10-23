@@ -1,13 +1,4 @@
 <script lang="ts">
-  import { page } from '$app/stores';
-  import ChangePinCodeSettings from './PinCodeSettings.svelte';
-  import DownloadSettings from './DownloadSettings.svelte';
-  import FeatureSettings from './FeatureSettings.svelte';
-  import NotificationsSettings from './NotificationsSettings.svelte';
-  import UserPurchaseSettings from './UserPurchaseSettings.svelte';
-  import UserUsageStatistic from './UserUsageStatistic.svelte';
-  import { OpenQueryParam, QueryParameter } from '$lib/constants';
-  import { oauth } from '$lib/utils';
   import {
     mdiAccountGroupOutline,
     mdiAccountOutline,
@@ -25,17 +16,26 @@
     mdiTwoFactorAuthentication,
   } from '@mdi/js';
   import { t } from 'svelte-i18n';
+  import { page } from '$app/stores';
   import SettingAccordion from '$lib/components/shared-components/settings/SettingAccordion.svelte';
+  import { OpenQueryParam, QueryParameter } from '$lib/constants';
+  import { createPreloadedQuery } from '$lib/queries/client';
+  import { getUserConfigQuery } from '$lib/queries/config-user.query';
+  import { oauth } from '$lib/utils';
   import AppSettings from './AppSettings.svelte';
   import ChangePasswordSettings from './ChangePasswordSettings.svelte';
   import DeviceList from './DeviceList.svelte';
+  import DownloadSettings from './DownloadSettings.svelte';
+  import FeatureSettings from './FeatureSettings.svelte';
+  import NotificationsSettings from './NotificationsSettings.svelte';
   import OAuthSettings from './OAuthSettings.svelte';
+  import ChangePinCodeSettings from './PinCodeSettings.svelte';
   import SharingSettings from './SharingSettings.svelte';
   import UserApiKeyList from './UserApiKeyList.svelte';
   import UserPasskeyList from './UserPasskeyList.svelte';
   import UserProfileSettings from './UserProfileSettings.svelte';
-  import { createPreloadedQuery } from '$lib/queries/client';
-  import { getUserConfigQuery } from '$lib/queries/config-user.query';
+  import UserPurchaseSettings from './UserPurchaseSettings.svelte';
+  import UserUsageStatistic from './UserUsageStatistic.svelte';
 
   const query = createPreloadedQuery(getUserConfigQuery);
   const config = $derived(query.data);

@@ -1,6 +1,6 @@
 <script lang="ts">
+  import { t } from 'svelte-i18n';
   import { scrollMemory } from '$lib/actions/scroll-memory';
-  import AlbumsControls from './AlbumsControls.svelte';
   import Albums from '$lib/components/album-page/AlbumsList.svelte';
   import UserPageLayout from '$lib/components/layouts/UserPageLayout.svelte';
   import EmptyPlaceholder from '$lib/components/shared-components/EmptyPlaceholder.svelte';
@@ -11,8 +11,8 @@
   import { Route } from '$lib/route';
   import { AlbumFilter, albumViewSettings } from '$lib/stores/preferences.store';
   import { createAlbumAndRedirect } from '$lib/utils/album-utils';
-  import { t } from 'svelte-i18n';
   import type { PageData } from './$types';
+  import AlbumsControls from './AlbumsControls.svelte';
 
   interface Props {
     data: PageData;

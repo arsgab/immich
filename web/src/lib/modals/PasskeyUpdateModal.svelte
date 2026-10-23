@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { executeMutation } from '$lib/queries/client';
-  import { updatePasskeyMutation } from '$lib/queries/passkey.query';
   import { Field, FormModal, Input } from '@immich/ui';
   import { mdiShieldKeyOutline } from '@mdi/js';
   import { t } from 'svelte-i18n';
+  import { executeMutation } from '$lib/queries/client';
+  import { updatePasskeyMutation } from '$lib/queries/passkey.query';
 
   type Props = {
     passkey: { id: string; name: string | null };

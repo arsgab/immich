@@ -1,7 +1,7 @@
 import type { AssetFaceResponseDto, PersonResponseDto } from '@immich/sdk';
 import { SvelteMap } from 'svelte/reactivity';
-import { assetCacheManager } from '$lib/managers/AssetCacheManager.svelte';
 import type { Faces } from '$lib/managers/asset-viewer-manager.svelte';
+import { assetCacheManager } from '$lib/managers/AssetCacheManager.svelte';
 import { CancellableTask } from '$lib/utils/cancellable-task';
 
 class FaceManager {

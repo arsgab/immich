@@ -1,9 +1,9 @@
 <script lang="ts">
-  import ControlAppBar from '$lib/components/shared-components/ControlAppBar.svelte';
-  import { assetMultiSelectManager } from '$lib/managers/asset-multi-select-manager.svelte';
   import { mdiClose } from '@mdi/js';
   import type { Snippet } from 'svelte';
   import { t } from 'svelte-i18n';
+  import ControlAppBar from '$lib/components/shared-components/ControlAppBar.svelte';
+  import { assetMultiSelectManager } from '$lib/managers/asset-multi-select-manager.svelte';
 
   type Props = {
     children?: Snippet;

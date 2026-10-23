@@ -1,4 +1,10 @@
 <script lang="ts">
+  import { createFace, getAllPeople, type PersonResponseDto } from '@immich/sdk';
+  import { Button, Input, modalManager, toastManager } from '@immich/ui';
+  import { Canvas, InteractiveFabricObject, Rect } from 'fabric';
+  import { clamp } from 'lodash-es';
+  import { onDestroy, onMount, tick } from 'svelte';
+  import { t } from 'svelte-i18n';
   import { shortcut } from '$lib/actions/shortcut';
   import ImageThumbnail from '$lib/components/assets/thumbnail/ImageThumbnail.svelte';
   import { assetViewerManager } from '$lib/managers/asset-viewer-manager.svelte';
@@ -8,12 +14,6 @@
   import { getNaturalSize, scaleToFit } from '$lib/utils/container-utils';
   import { handleError } from '$lib/utils/handle-error';
   import { normalizeSearchString } from '$lib/utils/string-utils';
-  import { createFace, getAllPeople, type PersonResponseDto } from '@immich/sdk';
-  import { Button, Input, modalManager, toastManager } from '@immich/ui';
-  import { Canvas, InteractiveFabricObject, Rect } from 'fabric';
-  import { clamp } from 'lodash-es';
-  import { onDestroy, onMount, tick } from 'svelte';
-  import { t } from 'svelte-i18n';
 
   type Props = {
     htmlElement: HTMLImageElement | HTMLVideoElement;

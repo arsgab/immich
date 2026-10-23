@@ -1,4 +1,16 @@
 <script lang="ts">
+  import {
+    getAllPeople,
+    getClusterGroupUsers,
+    getPerson,
+    searchPerson,
+    type PersonResponseDto,
+    type UserResponseDto,
+  } from '@immich/sdk';
+  import { ActionButton, Button, Icon, IconButton, modalManager } from '@immich/ui';
+  import { mdiAccountOff, mdiEyeOutline, mdiTune } from '@mdi/js';
+  import { onDestroy, onMount } from 'svelte';
+  import { t } from 'svelte-i18n';
   import { goto } from '$app/navigation';
   import { page } from '$app/state';
   import { scrollMemory } from '$lib/actions/scroll-memory';
@@ -18,18 +30,6 @@
   import { handlePromiseError } from '$lib/utils';
   import { handleError } from '$lib/utils/handle-error';
   import { normalizeSearchString } from '$lib/utils/string-utils';
-  import {
-    getAllPeople,
-    getClusterGroupUsers,
-    getPerson,
-    searchPerson,
-    type PersonResponseDto,
-    type UserResponseDto,
-  } from '@immich/sdk';
-  import { ActionButton, Button, Icon, IconButton, modalManager } from '@immich/ui';
-  import { mdiAccountOff, mdiEyeOutline, mdiTune } from '@mdi/js';
-  import { onDestroy, onMount } from 'svelte';
-  import { t } from 'svelte-i18n';
   import type { PageData } from './$types';
   import PeopleCard from './PeopleCard.svelte';
   import PeopleInfiniteScroll from './PeopleInfiniteScroll.svelte';

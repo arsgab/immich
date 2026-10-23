@@ -1,8 +1,4 @@
 <script lang="ts">
-  import HeaderActionButton from '$lib/components/HeaderActionButton.svelte';
-  import MaintenanceBackupEntry from '$lib/components/maintenance/MaintenanceBackupEntry.svelte';
-  import OnEvents from '$lib/components/OnEvents.svelte';
-  import { handleUploadDatabaseBackup } from '$lib/services/database-backups.service';
   import type { DatabaseBackupDto } from '@immich/sdk';
   import { listDatabaseBackups } from '@immich/sdk';
   import { Card, CardBody, HStack, Icon, ProgressBar, Stack, Text } from '@immich/ui';
@@ -10,6 +6,10 @@
   import { DateTime } from 'luxon';
   import { onMount } from 'svelte';
   import { t } from 'svelte-i18n';
+  import HeaderActionButton from '$lib/components/HeaderActionButton.svelte';
+  import MaintenanceBackupEntry from '$lib/components/maintenance/MaintenanceBackupEntry.svelte';
+  import OnEvents from '$lib/components/OnEvents.svelte';
+  import { handleUploadDatabaseBackup } from '$lib/services/database-backups.service';
 
   type Props = {
     backups?: DatabaseBackupDto[];

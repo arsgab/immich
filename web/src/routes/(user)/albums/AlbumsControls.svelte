@@ -1,4 +1,19 @@
 <script lang="ts">
+  import { Button, IconButton, Text } from '@immich/ui';
+  import {
+    mdiArrowDownThin,
+    mdiArrowUpThin,
+    mdiFolderArrowDownOutline,
+    mdiFolderArrowUpOutline,
+    mdiFolderRemoveOutline,
+    mdiFormatListBulletedSquare,
+    mdiPlusBoxOutline,
+    mdiUnfoldLessHorizontal,
+    mdiUnfoldMoreHorizontal,
+    mdiViewGridOutline,
+  } from '@mdi/js';
+  import { t } from 'svelte-i18n';
+  import { fly } from 'svelte/transition';
   import Dropdown from '$lib/elements/Dropdown.svelte';
   import GroupTab from '$lib/elements/GroupTab.svelte';
   import SearchBar from '$lib/elements/SearchBar.svelte';
@@ -23,21 +38,6 @@
     groupOptionsMetadata,
     sortOptionsMetadata,
   } from '$lib/utils/album-utils';
-  import { Button, IconButton, Text } from '@immich/ui';
-  import {
-    mdiArrowDownThin,
-    mdiArrowUpThin,
-    mdiFolderArrowDownOutline,
-    mdiFolderArrowUpOutline,
-    mdiFolderRemoveOutline,
-    mdiFormatListBulletedSquare,
-    mdiPlusBoxOutline,
-    mdiUnfoldLessHorizontal,
-    mdiUnfoldMoreHorizontal,
-    mdiViewGridOutline,
-  } from '@mdi/js';
-  import { t } from 'svelte-i18n';
-  import { fly } from 'svelte/transition';
 
   interface Props {
     albumGroups: string[];

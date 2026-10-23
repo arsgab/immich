@@ -1,4 +1,25 @@
 <script lang="ts">
+  import { AssetVisibility, searchPerson, updatePerson, type PersonResponseDto } from '@immich/sdk';
+  import {
+    ActionButton,
+    CommandPaletteDefaultProvider,
+    ContextMenuButton,
+    IconButton,
+    LoadingSpinner,
+    modalManager,
+    toastManager,
+    type ActionItem,
+  } from '@immich/ui';
+  import {
+    mdiAccountBoxOutline,
+    mdiAccountMultipleCheckOutline,
+    mdiArrowLeft,
+    mdiDotsVertical,
+    mdiPencilOutline,
+  } from '@mdi/js';
+  import { DateTime } from 'luxon';
+  import { onMount } from 'svelte';
+  import { t } from 'svelte-i18n';
   import { afterNavigate, goto, invalidateAll } from '$app/navigation';
   import { page } from '$app/stores';
   import { clickOutside } from '$lib/actions/click-outside';
@@ -35,27 +56,6 @@
   import { getPeopleThumbnailUrl } from '$lib/utils';
   import { handleError } from '$lib/utils/handle-error';
   import { normalizeSearchString } from '$lib/utils/string-utils';
-  import { AssetVisibility, searchPerson, updatePerson, type PersonResponseDto } from '@immich/sdk';
-  import {
-    ActionButton,
-    CommandPaletteDefaultProvider,
-    ContextMenuButton,
-    IconButton,
-    LoadingSpinner,
-    modalManager,
-    toastManager,
-    type ActionItem,
-  } from '@immich/ui';
-  import {
-    mdiAccountBoxOutline,
-    mdiAccountMultipleCheckOutline,
-    mdiArrowLeft,
-    mdiDotsVertical,
-    mdiPencilOutline,
-  } from '@mdi/js';
-  import { DateTime } from 'luxon';
-  import { onMount } from 'svelte';
-  import { t } from 'svelte-i18n';
   import type { PageData } from './$types';
   import EditNameInput from './EditNameInput.svelte';
   import MergeFaceSelector from './MergeFaceSelector.svelte';

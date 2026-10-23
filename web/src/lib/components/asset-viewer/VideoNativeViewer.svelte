@@ -1,13 +1,4 @@
 <script lang="ts">
-  import FaceEditor from '$lib/components/asset-viewer/face-editor/FaceEditor.svelte';
-  import VideoRemoteViewer from '$lib/components/asset-viewer/VideoRemoteViewer.svelte';
-  import { assetViewerFadeDuration } from '$lib/constants';
-  import { assetViewerManager } from '$lib/managers/asset-viewer-manager.svelte';
-  import { castManager } from '$lib/managers/cast-manager.svelte';
-  import { authManager } from '$lib/managers/auth-manager.svelte';
-  import { mediaCapabilitiesManager } from '$lib/managers/media-capabilities-manager.svelte';
-  import { autoPlayVideo, lang, loopVideo as loopVideoPreference } from '$lib/stores/preferences.store';
-  import { getAssetHlsSessionUrl, getAssetHlsUrl, getAssetMediaUrl, getAssetPlaybackUrl } from '$lib/utils';
   import { AssetMediaSize, type AssetResponseDto } from '@immich/sdk';
   import { Icon, LoadingSpinner, shortcuts } from '@immich/ui';
   import {
@@ -23,9 +14,18 @@
     mdiVolumeMedium,
     mdiVolumeMute,
   } from '@mdi/js';
-  import 'hls-video-element';
   import type HlsVideoElement from 'hls-video-element';
   import Hls, { AbrController, Events, type FragLoadedData, type FragLoadingData, type HlsConfig } from 'hls.js';
+  import { onDestroy, onMount } from 'svelte';
+  import { useSwipe, type SwipeCustomEvent } from 'svelte-gestures';
+  import { t } from 'svelte-i18n';
+  import { fade } from 'svelte/transition';
+  import FaceEditor from '$lib/components/asset-viewer/face-editor/FaceEditor.svelte';
+  import VideoRemoteViewer from '$lib/components/asset-viewer/VideoRemoteViewer.svelte';
+  import { assetViewerFadeDuration } from '$lib/constants';
+  import 'hls-video-element';
+  import { assetViewerManager } from '$lib/managers/asset-viewer-manager.svelte';
+  import { authManager } from '$lib/managers/auth-manager.svelte';
   import 'media-chrome/media-control-bar';
   import 'media-chrome/media-controller';
   import 'media-chrome/media-fullscreen-button';
@@ -39,13 +39,13 @@
   import 'media-chrome/menu/media-settings-menu';
   import 'media-chrome/menu/media-settings-menu-button';
   import 'media-chrome/menu/media-settings-menu-item';
-  import { onDestroy, onMount } from 'svelte';
-  import { useSwipe, type SwipeCustomEvent } from 'svelte-gestures';
-  import { t } from 'svelte-i18n';
-  import { fade } from 'svelte/transition';
-  import './immich-time-range';
+  import { castManager } from '$lib/managers/cast-manager.svelte';
+  import { mediaCapabilitiesManager } from '$lib/managers/media-capabilities-manager.svelte';
   import { createPreloadedQuery } from '$lib/queries/client';
   import { getPublicConfigQuery } from '$lib/queries/config-public.query';
+  import './immich-time-range';
+  import { autoPlayVideo, lang, loopVideo as loopVideoPreference } from '$lib/stores/preferences.store';
+  import { getAssetHlsSessionUrl, getAssetHlsUrl, getAssetMediaUrl, getAssetPlaybackUrl } from '$lib/utils';
 
   const query = createPreloadedQuery(getPublicConfigQuery);
   const publicConfig = $derived(query.data);

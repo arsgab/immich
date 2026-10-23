@@ -1,22 +1,22 @@
 <script lang="ts">
+  import { getAssetInfo, AssetMediaSize, type SearchExploreResponseDto } from '@immich/sdk';
+  import { ImageCarousel } from '@immich/ui';
+  import { t } from 'svelte-i18n';
   import ImageThumbnail from '$lib/components/assets/thumbnail/ImageThumbnail.svelte';
   import PersonIndicator from '$lib/components/faces-page/PersonIndicator.svelte';
   import UserPageLayout from '$lib/components/layouts/UserPageLayout.svelte';
+  import MemoryCard from '$lib/components/memories/MemoryCard.svelte';
   import OnEvents from '$lib/components/OnEvents.svelte';
   import EmptyPlaceholder from '$lib/components/shared-components/EmptyPlaceholder.svelte';
   import SingleGridRow from '$lib/components/shared-components/SingleGridRow.svelte';
+  import Portal from '$lib/elements/Portal.svelte';
   import { assetViewerManager } from '$lib/managers/asset-viewer-manager.svelte';
+  import { authManager } from '$lib/managers/auth-manager.svelte';
   import { Route } from '$lib/route';
   import { getAssetMediaUrl, getPeopleThumbnailUrl, memoryLaneTitle } from '$lib/utils';
-  import { getAssetInfo, AssetMediaSize, type SearchExploreResponseDto } from '@immich/sdk';
-  import { authManager } from '$lib/managers/auth-manager.svelte';
-  import MemoryCard from '$lib/components/memories/MemoryCard.svelte';
-  import { ImageCarousel } from '@immich/ui';
-  import { t } from 'svelte-i18n';
-  import type { PageData } from './$types';
-  import { toTimelineAsset } from '$lib/utils/timeline-util';
   import { getAltText } from '$lib/utils/thumbnail-util';
-  import Portal from '$lib/elements/Portal.svelte';
+  import { toTimelineAsset } from '$lib/utils/timeline-util';
+  import type { PageData } from './$types';
 
   interface Props {
     data: PageData;

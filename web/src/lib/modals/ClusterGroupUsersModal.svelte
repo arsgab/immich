@@ -1,8 +1,8 @@
 <script lang="ts">
-  import UserAvatar from '$lib/components/shared-components/UserAvatar.svelte';
   import { getClusterGroupUsers, type UserResponseDto } from '@immich/sdk';
   import { Button, HStack, LoadingSpinner, Modal, ModalBody, ModalFooter, Text } from '@immich/ui';
   import { t } from 'svelte-i18n';
+  import UserAvatar from '$lib/components/shared-components/UserAvatar.svelte';
 
   type Props = {
     clusterGroupId: string;

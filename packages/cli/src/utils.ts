@@ -8,12 +8,12 @@ import {
   Permission,
 } from '@immich/sdk';
 import { convertPathToPattern, glob } from 'fast-glob';
+import yaml from 'yaml';
 import { createHash } from 'node:crypto';
 import { createReadStream } from 'node:fs';
 import { readFile, stat, writeFile } from 'node:fs/promises';
 import { platform } from 'node:os';
 import { join, resolve } from 'node:path';
-import yaml from 'yaml';
 
 export interface BaseOptions {
   configDirectory: string;

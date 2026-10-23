@@ -45,7 +45,7 @@ While this guide focuses on VS Code, you have many options for Dev Container dev
 
 - [Coder](https://coder.com) - Enterprise-focused, requires Terraform knowledge, self-managed
 - [DevPod](https://devpod.sh) - Client-only tool with excellent devcontainer.json support, works with any provider (local, cloud, or on-premise). Check [quick-start guide](#quick-start-guide-for-devpod-with-docker)
-  :::
+:::
 
 ## Dev Container Services
 

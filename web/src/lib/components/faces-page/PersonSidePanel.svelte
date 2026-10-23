@@ -1,14 +1,4 @@
 <script lang="ts">
-  import { shortcut } from '$lib/actions/shortcut';
-  import OnEvents from '$lib/components/OnEvents.svelte';
-  import { timeBeforeShowLoadingSpinner } from '$lib/constants';
-  import { assetViewerManager } from '$lib/managers/asset-viewer-manager.svelte';
-  import { eventManager } from '$lib/managers/event-manager.svelte';
-  import { languageManager } from '$lib/managers/language-manager.svelte';
-  import { getPeopleThumbnailUrl, handlePromiseError } from '$lib/utils';
-  import { handleError } from '$lib/utils/handle-error';
-  import { zoomImageToBase64 } from '$lib/utils/people-utils';
-  import { getPersonNameWithHiddenValue } from '$lib/utils/person';
   import {
     AssetTypeEnum,
     createPerson,
@@ -24,6 +14,16 @@
   import { t } from 'svelte-i18n';
   import { linear } from 'svelte/easing';
   import { fly } from 'svelte/transition';
+  import { shortcut } from '$lib/actions/shortcut';
+  import OnEvents from '$lib/components/OnEvents.svelte';
+  import { timeBeforeShowLoadingSpinner } from '$lib/constants';
+  import { assetViewerManager } from '$lib/managers/asset-viewer-manager.svelte';
+  import { eventManager } from '$lib/managers/event-manager.svelte';
+  import { languageManager } from '$lib/managers/language-manager.svelte';
+  import { getPeopleThumbnailUrl, handlePromiseError } from '$lib/utils';
+  import { handleError } from '$lib/utils/handle-error';
+  import { zoomImageToBase64 } from '$lib/utils/people-utils';
+  import { getPersonNameWithHiddenValue } from '$lib/utils/person';
   import ImageThumbnail from '../assets/thumbnail/ImageThumbnail.svelte';
   import AssignFaceSidePanel from './AssignFaceSidePanel.svelte';
 

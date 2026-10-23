@@ -1,4 +1,11 @@
 <script lang="ts">
+  import { login, type LoginResponseDto } from '@immich/sdk';
+  import { Alert, Button, Field, Input, PasswordInput, Stack } from '@immich/ui';
+  import { mdiShieldKeyOutline } from '@mdi/js';
+  import { browserSupportsWebAuthn } from '@simplewebauthn/browser';
+  import { createMutation } from '@tanstack/svelte-query';
+  import { onMount } from 'svelte';
+  import { t } from 'svelte-i18n';
   import { goto } from '$app/navigation';
   import AuthPageLayout from '$lib/components/layouts/AuthPageLayout.svelte';
   import { eventManager } from '$lib/managers/event-manager.svelte';
@@ -7,15 +14,8 @@
   import { loginWithPasskeyMutation } from '$lib/queries/passkey.query';
   import { getServerConfigQuery } from '$lib/queries/server.query';
   import { Route } from '$lib/route';
-  import { browserSupportsWebAuthn } from '@simplewebauthn/browser';
-  import { createMutation } from '@tanstack/svelte-query';
   import { oauth } from '$lib/utils';
   import { getServerErrorMessage, handleError } from '$lib/utils/handle-error';
-  import { login, type LoginResponseDto } from '@immich/sdk';
-  import { Alert, Button, Field, Input, PasswordInput, Stack } from '@immich/ui';
-  import { mdiShieldKeyOutline } from '@mdi/js';
-  import { onMount } from 'svelte';
-  import { t } from 'svelte-i18n';
   import type { PageData } from './$types';
 
   interface Props {

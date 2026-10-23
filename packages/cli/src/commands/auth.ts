@@ -1,6 +1,4 @@
 import { getMyUser, Permission } from '@immich/sdk';
-import { existsSync } from 'node:fs';
-import { mkdir, unlink } from 'node:fs/promises';
 import {
   BaseOptions,
   connect,
@@ -10,6 +8,8 @@ import {
   withError,
   writeAuthFile,
 } from 'src/utils';
+import { existsSync } from 'node:fs';
+import { mkdir, unlink } from 'node:fs/promises';
 
 export const login = async (url: string, key: string, options: BaseOptions) => {
   console.log(`Logging in to ${url}`);

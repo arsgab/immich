@@ -1,9 +1,9 @@
 <script lang="ts">
-  import Qrcode from '$lib/components/shared-components/Qrcode.svelte';
-  import { copyToClipboard } from '$lib/utils';
   import { HStack, IconButton, Input, Modal, ModalBody } from '@immich/ui';
   import { mdiContentCopy, mdiLink } from '@mdi/js';
   import { t } from 'svelte-i18n';
+  import Qrcode from '$lib/components/shared-components/Qrcode.svelte';
+  import { copyToClipboard } from '$lib/utils';
 
   type Props = {
     title: string;

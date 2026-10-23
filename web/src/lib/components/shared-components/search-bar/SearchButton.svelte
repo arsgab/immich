@@ -1,8 +1,8 @@
 <script lang="ts">
   import { Button } from '@immich/ui';
+  import type { ButtonProps } from '@immich/ui';
   import { mdiCheck } from '@mdi/js';
   import type { Snippet } from 'svelte';
-  import type { ButtonProps } from '@immich/ui';
 
   type Props = {
     active: boolean;

@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { accordionManager } from '$lib/managers/accordion-manager.svelte';
   import { Icon } from '@immich/ui';
   import { onDestroy, type Snippet } from 'svelte';
   import { slide } from 'svelte/transition';
+  import { accordionManager } from '$lib/managers/accordion-manager.svelte';
 
   interface Props {
     title: string;

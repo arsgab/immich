@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { executeMutation } from '$lib/queries/client';
-  import { updateLibraryMutation } from '$lib/queries/library.query';
   import type { LibraryResponseDto } from '@immich/sdk';
   import { Field, FormModal, Input, Text } from '@immich/ui';
   import { mdiFolderSync } from '@mdi/js';
   import { t } from 'svelte-i18n';
+  import { executeMutation } from '$lib/queries/client';
+  import { updateLibraryMutation } from '$lib/queries/library.query';
 
   type Props = {
     library: LibraryResponseDto;

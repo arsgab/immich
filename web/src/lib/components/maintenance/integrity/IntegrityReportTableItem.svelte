@@ -1,9 +1,9 @@
 <script lang="ts">
-  import OnEvents from '$lib/components/OnEvents.svelte';
-  import { getIntegrityReportItemActions } from '$lib/services/integrity.service';
   import type { IntegrityReport } from '@immich/sdk';
   import { ContextMenuButton, TableCell, TableRow } from '@immich/ui';
   import { t } from 'svelte-i18n';
+  import OnEvents from '$lib/components/OnEvents.svelte';
+  import { getIntegrityReportItemActions } from '$lib/services/integrity.service';
 
   type Props = {
     id: string;

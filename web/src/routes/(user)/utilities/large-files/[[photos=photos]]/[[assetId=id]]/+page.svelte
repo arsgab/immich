@@ -1,16 +1,16 @@
 <script lang="ts">
+  import type { AssetResponseDto } from '@immich/sdk';
+  import { t } from 'svelte-i18n';
   import type { Action } from '$lib/components/asset-viewer/actions/action';
   import UserPageLayout from '$lib/components/layouts/UserPageLayout.svelte';
   import OnEvents from '$lib/components/OnEvents.svelte';
-  import LargeAssetData from './LargeAssetData.svelte';
   import Portal from '$lib/elements/Portal.svelte';
   import { assetViewerManager } from '$lib/managers/asset-viewer-manager.svelte';
   import { handlePromiseError } from '$lib/utils';
   import { getNextAsset, getPreviousAsset, navigateToAsset } from '$lib/utils/asset-utils';
   import { navigate } from '$lib/utils/navigation';
-  import type { AssetResponseDto } from '@immich/sdk';
-  import { t } from 'svelte-i18n';
   import type { PageData } from './$types';
+  import LargeAssetData from './LargeAssetData.svelte';
 
   interface Props {
     data: PageData;

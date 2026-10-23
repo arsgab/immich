@@ -1,11 +1,11 @@
 <script lang="ts">
-  import { pluginManager } from '$lib/managers/plugin-manager.svelte';
-  import { getTriggerName } from '$lib/utils/workflow';
   import type { WorkflowStepDto, WorkflowTrigger } from '@immich/sdk';
   import { Icon, IconButton, shortcut, Text } from '@immich/ui';
   import { mdiCheck, mdiClose, mdiContentCopy, mdiViewDashboardOutline } from '@mdi/js';
   import { t } from 'svelte-i18n';
   import { fly } from 'svelte/transition';
+  import { pluginManager } from '$lib/managers/plugin-manager.svelte';
+  import { getTriggerName } from '$lib/utils/workflow';
 
   type Props = {
     workflow: {

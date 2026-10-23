@@ -1,11 +1,11 @@
 <script lang="ts">
-  import { handleTagAssets } from '$lib/services/asset.service';
   import { getAllTags, upsertTags, type TagResponseDto } from '@immich/sdk';
   import { FormModal } from '@immich/ui';
   import { mdiTag } from '@mdi/js';
   import { onMount } from 'svelte';
   import { t } from 'svelte-i18n';
   import { SvelteSet } from 'svelte/reactivity';
+  import { handleTagAssets } from '$lib/services/asset.service';
   import Combobox, { type ComboBoxOption } from '../components/shared-components/Combobox.svelte';
   import TagPill from '../components/shared-components/TagPill.svelte';
 

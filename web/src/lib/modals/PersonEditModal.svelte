@@ -1,11 +1,11 @@
 <script lang="ts">
-  import { authManager } from '$lib/managers/auth-manager.svelte';
-  import { handleUpdatePerson } from '$lib/services/person.service';
   import { PersonUpdateStrategy, type PersonResponseDto } from '@immich/sdk';
   import { Checkbox, DatePicker, Field, FormModal, HelperText, HStack, Input, Label, Stack } from '@immich/ui';
   import { mdiPencilOutline } from '@mdi/js';
   import { DateTime } from 'luxon';
   import { t } from 'svelte-i18n';
+  import { authManager } from '$lib/managers/auth-manager.svelte';
+  import { handleUpdatePerson } from '$lib/services/person.service';
 
   type Props = {
     person: PersonResponseDto;

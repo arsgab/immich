@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { ocrManager } from '$lib/stores/ocr.svelte';
   import { IconButton } from '@immich/ui';
   import { mdiTextRecognition } from '@mdi/js';
   import { t } from 'svelte-i18n';
+  import { ocrManager } from '$lib/stores/ocr.svelte';
 </script>
 
 <IconButton

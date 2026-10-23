@@ -1,10 +1,4 @@
 <script lang="ts">
-  import HeaderActionButton from '$lib/components/HeaderActionButton.svelte';
-  import OnEvents from '$lib/components/OnEvents.svelte';
-  import UserAvatar from '$lib/components/shared-components/UserAvatar.svelte';
-  import { authManager } from '$lib/managers/auth-manager.svelte';
-  import { getPersonUserActions, getPersonUsersActions } from '$lib/services/person-user.service';
-  import { handleError } from '$lib/utils/handle-error';
   import {
     getClusterGroupUsers,
     getUsersForPeople,
@@ -16,6 +10,12 @@
   import { mdiAccountMultipleOutline } from '@mdi/js';
   import { onMount } from 'svelte';
   import { t } from 'svelte-i18n';
+  import HeaderActionButton from '$lib/components/HeaderActionButton.svelte';
+  import OnEvents from '$lib/components/OnEvents.svelte';
+  import UserAvatar from '$lib/components/shared-components/UserAvatar.svelte';
+  import { authManager } from '$lib/managers/auth-manager.svelte';
+  import { getPersonUserActions, getPersonUsersActions } from '$lib/services/person-user.service';
+  import { handleError } from '$lib/utils/handle-error';
 
   type Props = {
     person: PersonResponseDto;

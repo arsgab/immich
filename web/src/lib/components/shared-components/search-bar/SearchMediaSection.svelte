@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { MediaType } from '$lib/constants';
   import { Text } from '@immich/ui';
   import { t } from 'svelte-i18n';
+  import { MediaType } from '$lib/constants';
   import { searchManager } from '$lib/managers/search-manager.svelte';
   import SearchButton from './SearchButton.svelte';
 

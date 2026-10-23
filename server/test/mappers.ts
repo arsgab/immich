@@ -58,7 +58,8 @@ export const getAsDetectedFace = (face: ReturnType<AssetFaceFactory['build']>) =
 export const getForFacialRecognitionJob = (
   face: ReturnType<AssetFaceFactory['build']>,
   asset:
-    (Pick<Selectable<AssetTable>, 'ownerId' | 'visibility' | 'fileCreatedAt'> & { clusterGroupId?: string }) | null,
+    | (Pick<Selectable<AssetTable>, 'ownerId' | 'visibility' | 'fileCreatedAt'> & { clusterGroupId?: string })
+    | null,
 ) => ({
   ...face,
   asset: asset

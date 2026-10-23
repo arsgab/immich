@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { ByteUnit } from '$lib/utils/byte-units';
   import { Icon, Text } from '@immich/ui';
   import type { Snippet } from 'svelte';
+  import { ByteUnit } from '$lib/utils/byte-units';
 
   interface Props {
     icon?: string;

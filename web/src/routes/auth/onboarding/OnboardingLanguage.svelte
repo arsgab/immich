@@ -1,6 +1,6 @@
 <script lang="ts">
-  import SettingsLanguageSelector from '$lib/components/shared-components/settings/SettingsLanguageSelector.svelte';
   import { t } from 'svelte-i18n';
+  import SettingsLanguageSelector from '$lib/components/shared-components/settings/SettingsLanguageSelector.svelte';
 </script>
 
 <div class="flex flex-col gap-4">

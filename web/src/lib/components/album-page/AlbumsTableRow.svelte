@@ -1,4 +1,8 @@
 <script lang="ts">
+  import { AlbumUserRole, type AlbumResponseDto } from '@immich/sdk';
+  import { Icon, menuManager } from '@immich/ui';
+  import { mdiShareVariantOutline } from '@mdi/js';
+  import { t } from 'svelte-i18n';
   import { goto } from '$app/navigation';
   import { dateFormats } from '$lib/constants';
   import Portal from '$lib/elements/Portal.svelte';
@@ -6,10 +10,6 @@
   import { Route } from '$lib/route';
   import { getAlbumActions } from '$lib/services/album.service';
   import { locale } from '$lib/stores/preferences.store';
-  import { AlbumUserRole, type AlbumResponseDto } from '@immich/sdk';
-  import { Icon, menuManager } from '@immich/ui';
-  import { mdiShareVariantOutline } from '@mdi/js';
-  import { t } from 'svelte-i18n';
 
   type Props = {
     album: AlbumResponseDto;

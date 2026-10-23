@@ -1,8 +1,8 @@
 <script lang="ts">
-  import FormatMessage from '$lib/elements/FormatMessage.svelte';
   import { ConfirmModal, Link } from '@immich/ui';
   import { mdiCancel } from '@mdi/js';
   import { t } from 'svelte-i18n';
+  import FormatMessage from '$lib/elements/FormatMessage.svelte';
 
   type Props = {
     onClose: (confirmed?: boolean) => void;

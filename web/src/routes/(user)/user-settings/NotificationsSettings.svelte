@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { authManager } from '$lib/managers/auth-manager.svelte';
-  import { handleError } from '$lib/utils/handle-error';
   import { updateMyPreferences } from '@immich/sdk';
   import { Button, Field, Switch, toastManager } from '@immich/ui';
   import { t } from 'svelte-i18n';
   import { fade } from 'svelte/transition';
+  import { authManager } from '$lib/managers/auth-manager.svelte';
+  import { handleError } from '$lib/utils/handle-error';
 
   let emailNotificationsEnabled = $state(authManager.preferences.emailNotifications?.enabled ?? true);
   let albumInviteNotificationEnabled = $state(authManager.preferences.emailNotifications?.albumInvite ?? true);

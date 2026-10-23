@@ -1,10 +1,10 @@
 <script lang="ts">
-  import GeolocationPointPickerModal from '$lib/modals/GeolocationPointPickerModal.svelte';
-  import { handleError } from '$lib/utils/handle-error';
   import { updateAsset, type AssetResponseDto } from '@immich/sdk';
   import { Icon, modalManager } from '@immich/ui';
   import { mdiMapMarkerOutline, mdiPencil } from '@mdi/js';
   import { t } from 'svelte-i18n';
+  import GeolocationPointPickerModal from '$lib/modals/GeolocationPointPickerModal.svelte';
+  import { handleError } from '$lib/utils/handle-error';
 
   type Props = {
     isOwner: boolean;

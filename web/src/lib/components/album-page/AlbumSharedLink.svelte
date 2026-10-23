@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { getSharedLinkActions } from '$lib/services/shared-link.service';
-  import { locale } from '$lib/stores/preferences.store';
   import type { AlbumResponseDto, SharedLinkResponseDto } from '@immich/sdk';
   import { ActionButton, Text } from '@immich/ui';
   import { DateTime } from 'luxon';
   import { t } from 'svelte-i18n';
+  import { getSharedLinkActions } from '$lib/services/shared-link.service';
+  import { locale } from '$lib/stores/preferences.store';
 
   type Props = {
     album: AlbumResponseDto;

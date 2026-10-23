@@ -18,7 +18,8 @@ import { getUserAgentDetails } from 'src/utils/request.js';
 type AdminRoute = { admin?: true };
 type SharedLinkRoute = { sharedLink?: true };
 type AuthorizedRoute = { permission?: Permission | false; public?: never; setup?: never } & (
-  AdminRoute | SharedLinkRoute
+  | AdminRoute
+  | SharedLinkRoute
 );
 type PublicRoute = { public: true; setup?: true; permission?: never; admin?: never; sharedLink?: never };
 export type AuthenticatedOptions = AuthorizedRoute | PublicRoute;

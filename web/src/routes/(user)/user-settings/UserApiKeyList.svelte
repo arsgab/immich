@@ -1,13 +1,13 @@
 <script lang="ts">
+  import { Button, Table, TableBody, TableCell, TableHeader, TableHeading, TableRow, Text } from '@immich/ui';
+  import { t } from 'svelte-i18n';
+  import { fade } from 'svelte/transition';
   import TableButton from '$lib/components/TableButton.svelte';
   import { dateFormats } from '$lib/constants';
   import { getApiKeysQuery } from '$lib/queries/api-key.query';
   import { createPreloadedQuery } from '$lib/queries/client';
   import { getApiKeyActions, getApiKeysActions } from '$lib/services/api-key.service';
   import { locale } from '$lib/stores/preferences.store';
-  import { Button, Table, TableBody, TableCell, TableHeader, TableHeading, TableRow, Text } from '@immich/ui';
-  import { t } from 'svelte-i18n';
-  import { fade } from 'svelte/transition';
 
   const query = createPreloadedQuery(getApiKeysQuery);
   const keys = $derived(query.data);

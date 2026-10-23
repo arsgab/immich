@@ -1,13 +1,13 @@
 <script lang="ts">
+  import { type PersonResponseDto } from '@immich/sdk';
+  import { ContextMenuButton } from '@immich/ui';
+  import { mdiAccountMultipleCheckOutline } from '@mdi/js';
+  import { t } from 'svelte-i18n';
   import ImageThumbnail from '$lib/components/assets/thumbnail/ImageThumbnail.svelte';
   import PersonIndicator from '$lib/components/faces-page/PersonIndicator.svelte';
   import { Route } from '$lib/route';
   import { getPersonActions } from '$lib/services/person.service';
   import { getPeopleThumbnailUrl } from '$lib/utils';
-  import { type PersonResponseDto } from '@immich/sdk';
-  import { ContextMenuButton } from '@immich/ui';
-  import { mdiAccountMultipleCheckOutline } from '@mdi/js';
-  import { t } from 'svelte-i18n';
 
   type Props = {
     person: PersonResponseDto;

@@ -1,13 +1,13 @@
 <script lang="ts">
+  import { Button, Table, TableBody, TableCell, TableHeader, TableHeading, TableRow } from '@immich/ui';
+  import { t } from 'svelte-i18n';
+  import { fade } from 'svelte/transition';
   import TableButton from '$lib/components/TableButton.svelte';
   import { dateFormats } from '$lib/constants';
   import { createPreloadedQuery } from '$lib/queries/client';
   import { searchPasskeysQuery } from '$lib/queries/passkey.query';
   import { getPasskeyActions, getPasskeysActions } from '$lib/services/passkey.service';
   import { locale } from '$lib/stores/preferences.store';
-  import { Button, Table, TableBody, TableCell, TableHeader, TableHeading, TableRow } from '@immich/ui';
-  import { t } from 'svelte-i18n';
-  import { fade } from 'svelte/transition';
 
   const query = createPreloadedQuery(searchPasskeysQuery);
   const passkeys = $derived(query.data);

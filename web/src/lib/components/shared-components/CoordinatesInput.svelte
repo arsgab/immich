@@ -1,8 +1,8 @@
 <script lang="ts">
-  import NumberRangeInput from '$lib/components/shared-components/NumberRangeInput.svelte';
-  import { generateId } from '$lib/utils/generate-id';
   import { convert } from 'geo-coordinates-parser';
   import { t } from 'svelte-i18n';
+  import NumberRangeInput from '$lib/components/shared-components/NumberRangeInput.svelte';
+  import { generateId } from '$lib/utils/generate-id';
 
   interface Props {
     lat?: number;

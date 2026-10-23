@@ -1,12 +1,12 @@
 <script lang="ts">
-  import { type DownloadState, downloadManager } from '$lib/managers/download-manager.svelte';
-  import { locale } from '$lib/stores/preferences.store';
   import { CloseButton, Heading, IconButton } from '@immich/ui';
   import { mdiReload, mdiDownload } from '@mdi/js';
   import { t } from 'svelte-i18n';
   import { fly, slide } from 'svelte/transition';
-  import { getByteUnitString } from '$lib/utils/byte-units';
+  import { type DownloadState, downloadManager } from '$lib/managers/download-manager.svelte';
+  import { locale } from '$lib/stores/preferences.store';
   import { downloadUrlPost } from '$lib/utils';
+  import { getByteUnitString } from '$lib/utils/byte-units';
 
   const startDownload = (downloadKey: string, download: DownloadState) => {
     downloadUrlPost(download.url, download.assetIds, download.archiveName);

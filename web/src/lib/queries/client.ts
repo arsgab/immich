@@ -23,7 +23,9 @@ import { handleError } from '$lib/utils/handle-error';
 import { getFormatter } from '$lib/utils/i18n';
 
 type ToastMeta =
-  true | Translations | { color: 'primary' | 'success' | 'info' | 'warning' | 'danger'; description: Translations };
+  | true
+  | Translations
+  | { color: 'primary' | 'success' | 'info' | 'warning' | 'danger'; description: Translations };
 
 declare module '@tanstack/svelte-query' {
   interface Register {

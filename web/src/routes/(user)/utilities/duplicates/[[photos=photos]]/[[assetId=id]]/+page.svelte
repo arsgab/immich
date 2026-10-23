@@ -1,16 +1,4 @@
 <script lang="ts">
-  import { goto } from '$app/navigation';
-  import { page } from '$app/state';
-  import { shortcuts } from '$lib/actions/shortcut';
-  import UserPageLayout from '$lib/components/layouts/UserPageLayout.svelte';
-  import LinkToDocs from './LinkToDocs.svelte';
-  import DuplicatesCompareControl from './DuplicatesCompareControl.svelte';
-  import { assetViewerManager } from '$lib/managers/asset-viewer-manager.svelte';
-  import { languageManager } from '$lib/managers/language-manager.svelte';
-  import ShortcutsModal from '$lib/modals/ShortcutsModal.svelte';
-  import { Route } from '$lib/route';
-  import { locale } from '$lib/stores/preferences.store';
-  import { handleError } from '$lib/utils/handle-error';
   import type { AssetResponseDto } from '@immich/sdk';
   import { createStack, deleteDuplicates, resolveDuplicates, updateAssets } from '@immich/sdk';
   import { Button, HStack, IconButton, modalManager, Text, toastManager } from '@immich/ui';
@@ -24,9 +12,21 @@
     mdiTrashCanOutline,
   } from '@mdi/js';
   import { t } from 'svelte-i18n';
-  import type { PageData } from './$types';
+  import { goto } from '$app/navigation';
+  import { page } from '$app/state';
+  import { shortcuts } from '$lib/actions/shortcut';
+  import UserPageLayout from '$lib/components/layouts/UserPageLayout.svelte';
+  import { assetViewerManager } from '$lib/managers/asset-viewer-manager.svelte';
+  import { languageManager } from '$lib/managers/language-manager.svelte';
+  import ShortcutsModal from '$lib/modals/ShortcutsModal.svelte';
   import { createPreloadedQuery } from '$lib/queries/client';
   import { getUserConfigQuery } from '$lib/queries/config-user.query';
+  import { Route } from '$lib/route';
+  import { locale } from '$lib/stores/preferences.store';
+  import { handleError } from '$lib/utils/handle-error';
+  import type { PageData } from './$types';
+  import DuplicatesCompareControl from './DuplicatesCompareControl.svelte';
+  import LinkToDocs from './LinkToDocs.svelte';
 
   const query = createPreloadedQuery(getUserConfigQuery);
   const config = $derived(query.data);

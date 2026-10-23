@@ -1,9 +1,4 @@
 <script lang="ts">
-  import { getHeatmapRange } from '$lib';
-  import CalendarHeatmap from '$lib/components/CalendarHeatmap.svelte';
-  import Skeleton from '$lib/elements/Skeleton.svelte';
-  import { getAlbumStatisticsQuery } from '$lib/queries/album.query';
-  import { locale } from '$lib/stores/preferences.store';
   import {
     AssetVisibility,
     CalendarHeatmapType,
@@ -16,6 +11,11 @@
   import { createQuery } from '@tanstack/svelte-query';
   import { onMount } from 'svelte';
   import { t } from 'svelte-i18n';
+  import { getHeatmapRange } from '$lib';
+  import CalendarHeatmap from '$lib/components/CalendarHeatmap.svelte';
+  import Skeleton from '$lib/elements/Skeleton.svelte';
+  import { getAlbumStatisticsQuery } from '$lib/queries/album.query';
+  import { locale } from '$lib/stores/preferences.store';
 
   // always start on Sunday
 

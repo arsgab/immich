@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { searchManager } from '$lib/managers/search-manager.svelte';
-  import { searchStore } from '$lib/stores/search.svelte';
   import { Icon, IconButton, Text } from '@immich/ui';
   import { mdiClockOutline, mdiClose } from '@mdi/js';
   import { t } from 'svelte-i18n';
+  import { searchManager } from '$lib/managers/search-manager.svelte';
+  import { searchStore } from '$lib/stores/search.svelte';
 
   interface Props {
     onSelectSearchTerm: (searchTerm: string) => void;

@@ -50,20 +50,20 @@
 </script>
 
 <script lang="ts">
+  import type { AssetResponseDto, SharedLinkResponseDto } from '@immich/sdk';
+  import { untrack, type Snippet } from 'svelte';
   import AlphaBackground from '$lib/components/AlphaBackground.svelte';
   import BrokenAsset from '$lib/components/assets/BrokenAsset.svelte';
   import DelayedLoadingSpinner from '$lib/components/DelayedLoadingSpinner.svelte';
   import ImageLayer from '$lib/components/ImageLayer.svelte';
   import Thumbhash from '$lib/components/Thumbhash.svelte';
   import { assetViewerManager } from '$lib/managers/asset-viewer-manager.svelte';
+  import { languageManager } from '$lib/managers/language-manager.svelte';
   import { getAssetUrls } from '$lib/utils';
   import { AdaptiveImageLoader, type QualityList } from '$lib/utils/adaptive-image-loader.svelte';
   import { scaleToCover, scaleToFit, type Size } from '$lib/utils/container-utils';
   import { getAltText } from '$lib/utils/thumbnail-util';
   import { toTimelineAsset } from '$lib/utils/timeline-util';
-  import type { AssetResponseDto, SharedLinkResponseDto } from '@immich/sdk';
-  import { untrack, type Snippet } from 'svelte';
-  import { languageManager } from '$lib/managers/language-manager.svelte';
 
   type Props = {
     asset: AssetResponseDto;

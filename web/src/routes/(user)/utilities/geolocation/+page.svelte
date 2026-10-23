@@ -1,4 +1,8 @@
 <script lang="ts">
+  import { AssetVisibility, getAssetInfo, updateAssets } from '@immich/sdk';
+  import { Button, LoadingSpinner, modalManager, Text } from '@immich/ui';
+  import { mdiMapMarkerMultipleOutline, mdiPencilOutline, mdiSelectRemove } from '@mdi/js';
+  import { t } from 'svelte-i18n';
   import { isDefined } from '$lib';
   import UserPageLayout from '$lib/components/layouts/UserPageLayout.svelte';
   import EmptyPlaceholder from '$lib/components/shared-components/EmptyPlaceholder.svelte';
@@ -15,10 +19,6 @@
   import type { LatLng } from '$lib/types';
   import { setQueryValue } from '$lib/utils/navigation';
   import { toTimelineAsset } from '$lib/utils/timeline-util';
-  import { AssetVisibility, getAssetInfo, updateAssets } from '@immich/sdk';
-  import { Button, LoadingSpinner, modalManager, Text } from '@immich/ui';
-  import { mdiMapMarkerMultipleOutline, mdiPencilOutline, mdiSelectRemove } from '@mdi/js';
-  import { t } from 'svelte-i18n';
   import type { PageData } from './$types';
 
   type Props = {

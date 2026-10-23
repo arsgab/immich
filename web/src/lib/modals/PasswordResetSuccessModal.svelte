@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { copyToClipboard } from '$lib/utils';
   import { BasicModal, Code, IconButton, Text } from '@immich/ui';
   import { mdiCheck, mdiContentCopy } from '@mdi/js';
   import { t } from 'svelte-i18n';
+  import { copyToClipboard } from '$lib/utils';
 
   type Props = {
     onClose: () => void;

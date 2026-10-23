@@ -1,8 +1,4 @@
 <script lang="ts">
-  import SchemaAlbumPicker from '$lib/components/SchemaAlbumPicker.svelte';
-  import Self from '$lib/components/SchemaConfiguration.svelte';
-  import SchemaTagPicker from '$lib/components/SchemaTagPicker.svelte';
-  import type { JSONSchemaProperty, SchemaConfig } from '$lib/types';
   import {
     CodeBlock,
     Field,
@@ -16,6 +12,10 @@
     Text,
   } from '@immich/ui';
   import { t } from 'svelte-i18n';
+  import SchemaAlbumPicker from '$lib/components/SchemaAlbumPicker.svelte';
+  import Self from '$lib/components/SchemaConfiguration.svelte';
+  import SchemaTagPicker from '$lib/components/SchemaTagPicker.svelte';
+  import type { JSONSchemaProperty, SchemaConfig } from '$lib/types';
 
   type Props = {
     schema: JSONSchemaProperty;
@@ -29,8 +29,8 @@
   const label = $derived(schema.title ?? key);
   const description = $derived(schema.description);
 
-  const getValue = <T,>(defaultValue?: T) => (root ? config : (config?.[key] ?? defaultValue)) as T;
-  const setValue = <T,>(value: T) => {
+  const getValue = <T>(defaultValue?: T) => (root ? config : (config?.[key] ?? defaultValue)) as T;
+  const setValue = <T>(value: T) => {
     if (root) {
       config = value;
     } else {

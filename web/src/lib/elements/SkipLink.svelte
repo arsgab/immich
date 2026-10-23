@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { getTabbable } from '$lib/utils/focus-util';
   import { Button } from '@immich/ui';
   import { t } from 'svelte-i18n';
+  import { getTabbable } from '$lib/utils/focus-util';
 
   interface Props {
     /**

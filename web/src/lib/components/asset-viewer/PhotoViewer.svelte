@@ -1,4 +1,9 @@
 <script lang="ts">
+  import { type SharedLinkResponseDto } from '@immich/sdk';
+  import { toastManager } from '@immich/ui';
+  import { onDestroy, untrack } from 'svelte';
+  import { useSwipe, type SwipeCustomEvent } from 'svelte-gestures';
+  import { t } from 'svelte-i18n';
   import { shortcuts } from '$lib/actions/shortcut';
   import { zoomImageAction } from '$lib/actions/zoom-image';
   import AdaptiveImage from '$lib/components/AdaptiveImage.svelte';
@@ -17,11 +22,6 @@
   import { handleError } from '$lib/utils/handle-error';
   import { getOcrBoundingBoxes } from '$lib/utils/ocr-utils';
   import { getBoundingBox, type BoundingBox } from '$lib/utils/people-utils';
-  import { type SharedLinkResponseDto } from '@immich/sdk';
-  import { toastManager } from '@immich/ui';
-  import { onDestroy, untrack } from 'svelte';
-  import { useSwipe, type SwipeCustomEvent } from 'svelte-gestures';
-  import { t } from 'svelte-i18n';
   import type { AssetCursor } from './AssetViewer.svelte';
 
   type Props = {

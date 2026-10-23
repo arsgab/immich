@@ -1,8 +1,8 @@
 <script lang="ts">
+  import { type AlbumResponseDto } from '@immich/sdk';
   import AlbumPickerModal from '$lib/modals/AlbumPickerModal.svelte';
   import { addAssetsToAlbumsMutation } from '$lib/queries/album.query';
   import { executeMutation } from '$lib/queries/client';
-  import { type AlbumResponseDto } from '@immich/sdk';
 
   type Props = {
     assetIds: string[];

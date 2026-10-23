@@ -1,4 +1,18 @@
 <script lang="ts">
+  import {
+    AssetTypeEnum,
+    getAssetInfo,
+    getStack,
+    type AlbumResponseDto,
+    type AssetResponseDto,
+    type PersonResponseDto,
+    type StackResponseDto,
+  } from '@immich/sdk';
+  import { CommandPaletteDefaultProvider } from '@immich/ui';
+  import { onDestroy, onMount, untrack } from 'svelte';
+  import type { SwipeCustomEvent } from 'svelte-gestures';
+  import { t } from 'svelte-i18n';
+  import { fly } from 'svelte/transition';
   import { browser } from '$app/environment';
   import { focusTrap } from '$lib/actions/focus-trap';
   import { shortcuts } from '$lib/actions/shortcut';
@@ -24,24 +38,10 @@
   import type { OnUndoDelete } from '$lib/utils/actions';
   import { navigateToAsset } from '$lib/utils/asset-utils';
   import { handleError } from '$lib/utils/handle-error';
-  import { navigate } from '$lib/utils/navigation';
   import { InvocationTracker } from '$lib/utils/invocationTracker';
+  import { navigate } from '$lib/utils/navigation';
   import { SlideshowHistory } from '$lib/utils/slideshow-history';
   import { toTimelineAsset } from '$lib/utils/timeline-util';
-  import {
-    AssetTypeEnum,
-    getAssetInfo,
-    getStack,
-    type AlbumResponseDto,
-    type AssetResponseDto,
-    type PersonResponseDto,
-    type StackResponseDto,
-  } from '@immich/sdk';
-  import { CommandPaletteDefaultProvider } from '@immich/ui';
-  import { onDestroy, onMount, untrack } from 'svelte';
-  import type { SwipeCustomEvent } from 'svelte-gestures';
-  import { t } from 'svelte-i18n';
-  import { fly } from 'svelte/transition';
   import Thumbnail from '../assets/thumbnail/Thumbnail.svelte';
   import ActivityStatus from './ActivityStatus.svelte';
   import ActivityViewer from './ActivityViewer.svelte';

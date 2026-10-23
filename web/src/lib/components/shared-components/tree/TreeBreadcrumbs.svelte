@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { TreeNode } from '$lib/utils/tree-utils';
   import { Breadcrumbs, ControlBar, ControlBarHeader, IconButton } from '@immich/ui';
   import { mdiArrowUpLeft } from '@mdi/js';
   import { t } from 'svelte-i18n';
+  import { TreeNode } from '$lib/utils/tree-utils';
 
   type Props = {
     node: TreeNode;

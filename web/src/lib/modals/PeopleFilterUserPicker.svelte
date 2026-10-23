@@ -1,10 +1,10 @@
 <script lang="ts">
-  import UserAvatar from '$lib/components/shared-components/UserAvatar.svelte';
-  import { authManager } from '$lib/managers/auth-manager.svelte';
   import type { UserResponseDto } from '@immich/sdk';
   import { BasicModal, Icon, ListButton, Stack, Text } from '@immich/ui';
   import { mdiFilterOffOutline } from '@mdi/js';
   import { t } from 'svelte-i18n';
+  import UserAvatar from '$lib/components/shared-components/UserAvatar.svelte';
+  import { authManager } from '$lib/managers/auth-manager.svelte';
 
   type Props = {
     title: string;

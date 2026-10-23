@@ -1,22 +1,4 @@
 <script lang="ts">
-  import { afterNavigate, beforeNavigate } from '$app/navigation';
-  import { page } from '$app/state';
-  import { getPagesProvider, getSettingsProvider } from '$lib/commands';
-  import DownloadPanel from './DownloadPanel.svelte';
-  import ErrorLayout from './ErrorLayout.svelte';
-  import OnEvents from '$lib/components/OnEvents.svelte';
-  import NavigationLoadingBar from './NavigationLoadingBar.svelte';
-  import UploadPanel from './UploadPanel.svelte';
-  import VersionAnnouncement from './VersionAnnouncement.svelte';
-  import { authManager } from '$lib/managers/auth-manager.svelte';
-  import { eventManager } from '$lib/managers/event-manager.svelte';
-  import ServerRestartingModal from '$lib/modals/ServerRestartingModal.svelte';
-  import { queryClient } from '$lib/queries/client';
-  import { Route } from '$lib/route';
-  import { lang, locale } from '$lib/stores/preferences.store';
-  import { sidebarStore } from '$lib/stores/sidebar.svelte';
-  import { closeWebsocketConnection, openWebsocketConnection, websocketStore } from '$lib/stores/websocket';
-  import { maintenanceShouldRedirect } from '$lib/utils/maintenance';
   import { getServerConfig } from '@immich/sdk';
   import {
     CommandPaletteProvider,
@@ -35,12 +17,30 @@
     toastManager,
     TooltipProvider,
   } from '@immich/ui';
+  import { QueryClientProvider } from '@tanstack/svelte-query';
   import { En } from 'media-chrome/lang/en';
   import { addTranslation } from 'media-chrome/utils/i18n';
-  import { QueryClientProvider } from '@tanstack/svelte-query';
   import { onMount, type Snippet } from 'svelte';
   import { t } from 'svelte-i18n';
   import { get } from 'svelte/store';
+  import { afterNavigate, beforeNavigate } from '$app/navigation';
+  import { page } from '$app/state';
+  import { getPagesProvider, getSettingsProvider } from '$lib/commands';
+  import OnEvents from '$lib/components/OnEvents.svelte';
+  import { authManager } from '$lib/managers/auth-manager.svelte';
+  import { eventManager } from '$lib/managers/event-manager.svelte';
+  import ServerRestartingModal from '$lib/modals/ServerRestartingModal.svelte';
+  import { queryClient } from '$lib/queries/client';
+  import { Route } from '$lib/route';
+  import { lang, locale } from '$lib/stores/preferences.store';
+  import { sidebarStore } from '$lib/stores/sidebar.svelte';
+  import { closeWebsocketConnection, openWebsocketConnection, websocketStore } from '$lib/stores/websocket';
+  import { maintenanceShouldRedirect } from '$lib/utils/maintenance';
+  import DownloadPanel from './DownloadPanel.svelte';
+  import ErrorLayout from './ErrorLayout.svelte';
+  import NavigationLoadingBar from './NavigationLoadingBar.svelte';
+  import UploadPanel from './UploadPanel.svelte';
+  import VersionAnnouncement from './VersionAnnouncement.svelte';
   import '../app.css';
 
   interface Props {

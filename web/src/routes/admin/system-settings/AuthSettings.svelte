@@ -1,4 +1,10 @@
 <script lang="ts">
+  import { OAuthTokenEndpointAuthMethod, unlinkAllOAuthAccountsAdmin } from '@immich/sdk';
+  import { Button, IconButton, Link, modalManager, Text, toastManager } from '@immich/ui';
+  import { mdiPlus, mdiRestart, mdiTrashCanOutline } from '@mdi/js';
+  import { cloneDeep } from 'lodash-es';
+  import { t } from 'svelte-i18n';
+  import { fade } from 'svelte/transition';
   import SettingAccordion from '$lib/components/shared-components/settings/SettingAccordion.svelte';
   import SettingInputField from '$lib/components/shared-components/settings/SettingInputField.svelte';
   import SettingSwitch from '$lib/components/shared-components/settings/SettingSwitch.svelte';
@@ -10,12 +16,6 @@
   import { createPreloadedQuery } from '$lib/queries/client';
   import { getAdminConfigQuery } from '$lib/queries/config-admin.query';
   import { handleError } from '$lib/utils/handle-error';
-  import { OAuthTokenEndpointAuthMethod, unlinkAllOAuthAccountsAdmin } from '@immich/sdk';
-  import { Button, IconButton, Link, modalManager, Text, toastManager } from '@immich/ui';
-  import { mdiPlus, mdiRestart, mdiTrashCanOutline } from '@mdi/js';
-  import { cloneDeep } from 'lodash-es';
-  import { t } from 'svelte-i18n';
-  import { fade } from 'svelte/transition';
   import SettingSelect from './SettingSelect.svelte';
 
   const query = createPreloadedQuery(getAdminConfigQuery);

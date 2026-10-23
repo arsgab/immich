@@ -1,11 +1,11 @@
 #! /usr/bin/env node
 import { AssetVisibility } from '@immich/sdk';
 import { Command, Option } from 'commander';
-import os from 'node:os';
-import path from 'node:path';
 import { upload } from 'src/commands/asset.js';
 import { login, logout } from 'src/commands/auth.js';
 import { serverInfo } from 'src/commands/server-info.js';
+import os from 'node:os';
+import path from 'node:path';
 import { version } from '../package.json';
 
 const defaultConfigDirectory = path.join(os.homedir(), '.config/immich/');

@@ -1,4 +1,8 @@
 <script lang="ts">
+  import { getAssetInfo, type SharedLinkResponseDto } from '@immich/sdk';
+  import { IconButton, Logo, toastManager } from '@immich/ui';
+  import { mdiDownload, mdiFileImagePlusOutline, mdiSelectAll } from '@mdi/js';
+  import { t } from 'svelte-i18n';
   import { goto } from '$app/navigation';
   import type { Action } from '$lib/components/asset-viewer/actions/action';
   import DownloadAction from '$lib/components/timeline/actions/DownloadAction.svelte';
@@ -16,10 +20,6 @@
   import { fileUploadHandler, openFileUploadDialog } from '$lib/utils/file-uploader';
   import { handleError } from '$lib/utils/handle-error';
   import { toTimelineAsset } from '$lib/utils/timeline-util';
-  import { getAssetInfo, type SharedLinkResponseDto } from '@immich/sdk';
-  import { IconButton, Logo, toastManager } from '@immich/ui';
-  import { mdiDownload, mdiFileImagePlusOutline, mdiSelectAll } from '@mdi/js';
-  import { t } from 'svelte-i18n';
   import ControlAppBar from '../shared-components/ControlAppBar.svelte';
   import GalleryViewer from '../shared-components/gallery-viewer/GalleryViewer.svelte';
 

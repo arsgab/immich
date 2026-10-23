@@ -1,21 +1,21 @@
 <script lang="ts">
+  import { LoadingSpinner } from '@immich/ui';
+  import { onDestroy } from 'svelte';
   import { goto } from '$app/navigation';
   import UserPageLayout from '$lib/components/layouts/UserPageLayout.svelte';
-  import MapTimelinePanel from './MapTimelinePanel.svelte';
   import type { SelectionBBox } from '$lib/components/shared-components/map/types';
   import { timeToLoadTheMap } from '$lib/constants';
   import Portal from '$lib/elements/Portal.svelte';
   import { assetViewerManager } from '$lib/managers/asset-viewer-manager.svelte';
+  import { createPreloadedQuery } from '$lib/queries/client';
+  import { getUserConfigQuery } from '$lib/queries/config-user.query';
   import { Route } from '$lib/route';
+  import { mapSettings } from '$lib/stores/preferences.store';
   import { handlePromiseError } from '$lib/utils';
   import { delay } from '$lib/utils/asset-utils';
   import { navigate } from '$lib/utils/navigation';
-  import { mapSettings } from '$lib/stores/preferences.store';
-  import { LoadingSpinner } from '@immich/ui';
-  import { onDestroy } from 'svelte';
   import type { PageData } from './$types';
-  import { createPreloadedQuery } from '$lib/queries/client';
-  import { getUserConfigQuery } from '$lib/queries/config-user.query';
+  import MapTimelinePanel from './MapTimelinePanel.svelte';
 
   const query = createPreloadedQuery(getUserConfigQuery);
   const config = $derived(query.data);

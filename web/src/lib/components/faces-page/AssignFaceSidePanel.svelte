@@ -1,11 +1,4 @@
 <script lang="ts">
-  import SearchPeople from '$lib/components/faces-page/PeopleSearch.svelte';
-  import { timeBeforeShowLoadingSpinner } from '$lib/constants';
-  import { assetViewerManager } from '$lib/managers/asset-viewer-manager.svelte';
-  import { getPeopleThumbnailUrl, handlePromiseError } from '$lib/utils';
-  import { handleError } from '$lib/utils/handle-error';
-  import { zoomImageToBase64 } from '$lib/utils/people-utils';
-  import { getPersonNameWithHiddenValue } from '$lib/utils/person';
   import { AssetTypeEnum, getAllPeople, type AssetFaceResponseDto, type PersonResponseDto } from '@immich/sdk';
   import { IconButton, LoadingSpinner } from '@immich/ui';
   import { mdiArrowLeftThin, mdiClose, mdiMagnify, mdiPlus } from '@mdi/js';
@@ -13,6 +6,13 @@
   import { t } from 'svelte-i18n';
   import { linear } from 'svelte/easing';
   import { fly } from 'svelte/transition';
+  import SearchPeople from '$lib/components/faces-page/PeopleSearch.svelte';
+  import { timeBeforeShowLoadingSpinner } from '$lib/constants';
+  import { assetViewerManager } from '$lib/managers/asset-viewer-manager.svelte';
+  import { getPeopleThumbnailUrl, handlePromiseError } from '$lib/utils';
+  import { handleError } from '$lib/utils/handle-error';
+  import { zoomImageToBase64 } from '$lib/utils/people-utils';
+  import { getPersonNameWithHiddenValue } from '$lib/utils/person';
   import ImageThumbnail from '../assets/thumbnail/ImageThumbnail.svelte';
 
   interface Props {

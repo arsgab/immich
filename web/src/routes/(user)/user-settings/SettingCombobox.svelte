@@ -1,10 +1,10 @@
 <script lang="ts">
-  import Combobox, { type ComboBoxOption } from '$lib/components/shared-components/Combobox.svelte';
   import { Label, Text } from '@immich/ui';
   import type { Snippet } from 'svelte';
   import { t } from 'svelte-i18n';
   import { quintOut } from 'svelte/easing';
   import { fly } from 'svelte/transition';
+  import Combobox, { type ComboBoxOption } from '$lib/components/shared-components/Combobox.svelte';
 
   interface Props {
     title: string;

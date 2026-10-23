@@ -1,14 +1,14 @@
 <script lang="ts">
-  import { assetViewerManager } from '$lib/managers/asset-viewer-manager.svelte';
-  import MapModal from '$lib/modals/MapModal.svelte';
-  import { getAlbumMapMarkersQuery } from '$lib/queries/album.query';
-  import { navigate } from '$lib/utils/navigation';
   import { type AlbumResponseDto } from '@immich/sdk';
   import { IconButton, modalManager } from '@immich/ui';
   import { mdiMapOutline } from '@mdi/js';
   import { createQuery } from '@tanstack/svelte-query';
   import { onDestroy } from 'svelte';
   import { t } from 'svelte-i18n';
+  import { assetViewerManager } from '$lib/managers/asset-viewer-manager.svelte';
+  import MapModal from '$lib/modals/MapModal.svelte';
+  import { getAlbumMapMarkersQuery } from '$lib/queries/album.query';
+  import { navigate } from '$lib/utils/navigation';
 
   interface Props {
     album: AlbumResponseDto;

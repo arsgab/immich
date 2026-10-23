@@ -1,15 +1,15 @@
 <script lang="ts">
+  import { type ReleaseEventV1 } from '@immich/sdk';
+  import { Icon, modalManager, Text } from '@immich/ui';
+  import { mdiAlert, mdiNewBox } from '@mdi/js';
+  import { createQuery } from '@tanstack/svelte-query';
+  import { t } from 'svelte-i18n';
   import { authManager } from '$lib/managers/auth-manager.svelte';
   import { releaseManager } from '$lib/managers/release-manager.svelte';
   import ServerAboutModal from '$lib/modals/ServerAboutModal.svelte';
   import { getAboutInfoQuery, getVersionHistoryQuery } from '$lib/queries/server.query';
   import { websocketStore } from '$lib/stores/websocket';
   import { semverToName } from '$lib/utils';
-  import { type ReleaseEventV1 } from '@immich/sdk';
-  import { Icon, modalManager, Text } from '@immich/ui';
-  import { createQuery } from '@tanstack/svelte-query';
-  import { mdiAlert, mdiNewBox } from '@mdi/js';
-  import { t } from 'svelte-i18n';
 
   const { serverVersion, connected } = websocketStore;
 

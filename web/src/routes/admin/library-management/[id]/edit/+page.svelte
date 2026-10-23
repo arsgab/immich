@@ -1,11 +1,11 @@
 <script lang="ts">
+  import { Field, FormModal, Input } from '@immich/ui';
+  import { mdiRenameOutline } from '@mdi/js';
+  import { t } from 'svelte-i18n';
   import { goto } from '$app/navigation';
   import { createPreloadedQuery, executeMutation } from '$lib/queries/client';
   import { getLibraryQuery, updateLibraryMutation } from '$lib/queries/library.query';
   import { Route } from '$lib/route';
-  import { Field, FormModal, Input } from '@immich/ui';
-  import { mdiRenameOutline } from '@mdi/js';
-  import { t } from 'svelte-i18n';
   import type { PageProps } from './$types';
 
   const { params }: PageProps = $props();

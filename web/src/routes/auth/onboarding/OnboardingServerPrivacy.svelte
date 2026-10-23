@@ -1,10 +1,10 @@
 <script lang="ts">
-  import SettingSwitch from '$lib/components/shared-components/settings/SettingSwitch.svelte';
-  import { createPreloadedQuery, executeMutation } from '$lib/queries/client';
-  import { getAdminConfigQuery, updateAdminConfigMutation } from '$lib/queries/config-admin.query';
   import { cloneDeep } from 'lodash-es';
   import { onDestroy } from 'svelte';
   import { t } from 'svelte-i18n';
+  import SettingSwitch from '$lib/components/shared-components/settings/SettingSwitch.svelte';
+  import { createPreloadedQuery, executeMutation } from '$lib/queries/client';
+  import { getAdminConfigQuery, updateAdminConfigMutation } from '$lib/queries/config-admin.query';
 
   const query = createPreloadedQuery(getAdminConfigQuery);
   const configToEdit = $state(cloneDeep(query.data));
