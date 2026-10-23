@@ -1,6 +1,6 @@
 import js from '@eslint/js';
 import { importX } from 'eslint-plugin-import-x';
-import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
+import eslintConfigPrettier from 'eslint-config-prettier/flat';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import { defineConfig } from 'eslint/config';
 import globals from 'globals';
@@ -112,5 +112,5 @@ export default defineConfig([
       ],
     },
   },
-  eslintPluginPrettierRecommended,
+  eslintConfigPrettier,
 ]);

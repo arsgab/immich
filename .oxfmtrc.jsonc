@@ -1,0 +1,56 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "singleQuote": true,
+  "trailingComma": "all",
+  "printWidth": 120,
+  "semi": true,
+  "svelte": true,
+  "ignorePatterns": [
+    // Not formatted: everything at the repo root except the scopes re-included below
+    "/*",
+    "!/.github",
+    "!/docs",
+    "!/i18n",
+    "!/packages",
+    "!/server",
+    "!/web",
+    // Not formatted
+    "/packages/sdk",
+    "/packages/plugin-sdk",
+    // Lockfiles
+    "pnpm-lock.yaml",
+    "package-lock.json",
+    "yarn.lock",
+    // Build artifacts
+    "**/build",
+    "**/dist",
+    "**/coverage",
+    "**/.svelte-kit",
+    "**/.docusaurus",
+    // Previously ignored by prettier, scoped per directory
+    "/server/**/*.md",
+    "/server/**/*.json",
+    "/server/**/migrations/**",
+    "/server/**/db.d.ts",
+    "/packages/cli/**/*.md",
+    "/packages/cli/**/*.json",
+    "/web/**/*.md",
+    "/web/package",
+  ],
+  "overrides": [
+    {
+      // Equivalent of @trivago/prettier-plugin-sort-imports / prettier-plugin-organize-imports
+      "files": ["web/**", "packages/cli/**"],
+      "options": {
+        "sortImports": {
+          "newlinesBetween": false,
+          "customGroups": [
+            { "groupName": "svelte-alias", "elementNamePattern": ["$*", "$*/**"] },
+            { "groupName": "test-data", "elementNamePattern": ["@test-data", "@test-data/**"] },
+          ],
+          "groups": ["external", "builtin", "svelte-alias", "test-data", ["parent", "sibling", "index"], "unknown"],
+        },
+      },
+    },
+  ],
+}

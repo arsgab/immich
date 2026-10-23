@@ -59,7 +59,7 @@ export const calculateBoundingBoxMatrix = (points: Point[]): Size & { matrix: nu
   const a12 = (1 + a13) * topRight.y - topLeft.y;
   const a22 = (1 + a23) * bottomLeft.y - topLeft.y;
 
-  // prettier-ignore
+  // oxfmt-ignore
   const matrix = [
     a11 / width, a12 / width, 0, a13 / width,
     a21 / height, a22 / height, 0, a23 / height,

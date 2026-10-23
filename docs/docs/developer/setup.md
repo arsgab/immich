@@ -149,14 +149,14 @@ Note: Activating the license is not required.
 
 ### VSCode
 
-Install the `Prettier`, `ESLint` and `Svelte` extensions.
+Install the `Oxc`, `ESLint` and `Svelte` extensions.
 
 Here are the settings we use, they should be active as workspace settings (`settings.json`):
 
 ```json title="settings.json"
 {
   "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "oxc.oxc-vscode",
     "editor.formatOnSave": true,
     "editor.tabSize": 2
   },
@@ -174,17 +174,17 @@ Here are the settings we use, they should be active as workspace settings (`sett
       "source.organizeImports": "explicit",
       "source.removeUnusedImports": "explicit"
     },
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "oxc.oxc-vscode",
     "editor.formatOnSave": true,
     "editor.tabSize": 2
   },
   "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "oxc.oxc-vscode",
     "editor.formatOnSave": true,
     "editor.tabSize": 2
   },
   "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "oxc.oxc-vscode",
     "editor.formatOnSave": true,
     "editor.tabSize": 2
   },
@@ -202,7 +202,7 @@ Here are the settings we use, they should be active as workspace settings (`sett
       "source.organizeImports": "explicit",
       "source.removeUnusedImports": "explicit"
     },
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "oxc.oxc-vscode",
     "editor.formatOnSave": true,
     "editor.tabSize": 2
   },

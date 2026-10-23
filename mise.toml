@@ -46,11 +46,11 @@ dir = "server"
 run = "node ./dist/bin/sync-sql.js"
 
 [tasks.format]
-description = "Check formatting of i18n/"
-run = "pnpm format"
+description = "Check formatting with oxfmt"
+run = "pnpm exec oxfmt --check"
 
 [tasks."format-fix"]
-run = "pnpm format:fix"
+run = "pnpm exec oxfmt"
 
 [tasks.clean]
 run = [
@@ -131,12 +131,10 @@ dir = "server"
 run = "pnpm exec vitest --config test/vitest.config.medium.mjs"
 
 [tasks."server:format"]
-dir = "server"
-run = "pnpm exec prettier --check ."
+run = "pnpm exec oxfmt --check server"
 
 [tasks."server:format-fix"]
-dir = "server"
-run = "pnpm exec prettier --write ."
+run = "pnpm exec oxfmt server"
 
 [tasks."server:lint"]
 dir = "server"
@@ -214,12 +212,10 @@ dir = "web"
 run = "pnpm run test"
 
 [tasks."web:format"]
-dir = "web"
-run = "pnpm run format"
+run = "pnpm exec oxfmt --check web"
 
 [tasks."web:format-fix"]
-dir = "web"
-run = "pnpm run format:fix"
+run = "pnpm exec oxfmt web"
 
 [tasks."web:lint"]
 dir = "web"

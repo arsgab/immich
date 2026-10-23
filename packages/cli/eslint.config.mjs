@@ -1,12 +1,12 @@
 import js from '@eslint/js';
-import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
+import eslintConfigPrettier from 'eslint-config-prettier/flat';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import globals from 'globals';
 import typescriptEslint from 'typescript-eslint';
 
 export default typescriptEslint.config([
   eslintPluginUnicorn.configs.recommended,
-  eslintPluginPrettierRecommended,
+  eslintConfigPrettier,
   js.configs.recommended,
   typescriptEslint.configs.recommended,
   {
@@ -47,7 +47,6 @@ export default typescriptEslint.config([
       // prefer the typescript-eslint type-aware version
       'unicorn/require-array-sort-compare': 'off',
       '@typescript-eslint/require-array-sort-compare': 'error',
-      'prettier/prettier': 0,
       'object-shorthand': ['error', 'always'],
     },
   },

@@ -5,7 +5,6 @@ packages:
   - server
   - plugins
   - web
-  - .github
   - packages/*
 allowBuilds:
   '@nestjs/core': false

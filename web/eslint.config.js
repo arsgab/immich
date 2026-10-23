@@ -2,7 +2,7 @@ import js from '@eslint/js';
 import tslintPluginCompat from '@koddsson/eslint-plugin-tscompat';
 import eslintPluginBetterTailwindcss from 'eslint-plugin-better-tailwindcss';
 import eslintPluginCompat from 'eslint-plugin-compat';
-import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
+import eslintConfigPrettier from 'eslint-config-prettier/flat';
 import eslintPluginSvelte from 'eslint-plugin-svelte';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import { defineConfig } from 'eslint/config';
@@ -197,5 +197,5 @@ export default defineConfig(
       },
     },
   },
-  eslintPluginPrettierRecommended,
+  eslintConfigPrettier,
 );

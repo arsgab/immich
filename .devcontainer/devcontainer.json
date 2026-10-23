@@ -16,12 +16,11 @@
     "vscode": {
       "extensions": [
         "dbaeumer.vscode-eslint",
-        "esbenp.prettier-vscode",
+        "oxc.oxc-vscode",
         "svelte.svelte-vscode",
         "ms-vscode-remote.remote-containers",
         "foxundermoon.shell-format",
         "timonwong.shellcheck",
-        "rvest.vs-code-prettier-eslint",
         "bluebrown.yamlfmt",
         "vkrishna04.cspell-sync",
         "vitest.explorer",

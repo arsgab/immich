@@ -6,8 +6,6 @@ upload/**
 .eslintignore
 .eslintrc.cjs
 .gitignore
-.prettierignore
-.prettierrc
 Dockerfile
 package-lock.json
 tsconfig.json
