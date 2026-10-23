@@ -14,8 +14,6 @@ packages/**/build
 
 vite.config.js.timestamp-*
 .pnpm-store
-.devcontainer/library
-.devcontainer/.env*
 *.tsbuildinfo
 *.tsbuildInfo
 

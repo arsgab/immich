@@ -60,38 +60,7 @@ run = [
   "find . -name '.svelte-kit' -type d -prune -exec rm -rf '{}' +",
   "find . -name 'coverage' -type d -prune -exec rm -rf '{}' +",
   "find . -name '.pnpm-store' -type d -prune -exec rm -rf '{}' +",
-  { task = "dev-down" },
-  { task = "prod-down" },
 ]
-
-# Docker compose
-
-[tasks.dev]
-depends = "plugins"
-dir = "docker"
-interactive = true
-env = { COMPOSE_BAKE = true }
-run = "docker compose -f ./docker-compose.dev.yml up --remove-orphans"
-depends_post = "dev-down"
-
-[tasks.dev-update]
-run = { task = "dev", args = ["--build", "-V"] }
-
-[tasks.dev-down]
-dir = "docker"
-run = "docker compose -f ./docker-compose.dev.yml down --remove-orphans"
-
-[tasks.prod]
-depends = "plugins"
-dir = "docker"
-interactive = true
-env = { COMPOSE_BAKE = true }
-run = "docker compose -f ./docker-compose.prod.yml up --build --remove-orphans"
-depends_post = "prod-down"
-
-[tasks.prod-down]
-dir = "docker"
-run = "docker compose -f ./docker-compose.prod.yml down --remove-orphans"
 
 # packages/sdk
 
