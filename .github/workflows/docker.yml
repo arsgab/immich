@@ -70,7 +70,6 @@ jobs:
           cache-from: type=gha,scope=${{ matrix.image }}-${{ env.PLATFORM_PAIR }}
           cache-to: type=gha,scope=${{ matrix.image }}-${{ env.PLATFORM_PAIR }},mode=max
           build-args: |
-            DEVICE=cpu
             BUILD_ID=${{ github.run_id }}
             BUILD_IMAGE=${{ github.ref_name }}
             BUILD_SOURCE_REF=${{ github.ref_name }}
