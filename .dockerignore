@@ -12,13 +12,8 @@
 **/coverage/
 **/build/
 
-design/
 docker/
 !docker/scripts
-
-docs/
-!docs/package.json
-!docs/package-lock.json
 
 
 machine-learning/

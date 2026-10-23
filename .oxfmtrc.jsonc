@@ -9,7 +9,6 @@
     // Not formatted: everything at the repo root except the scopes re-included below
     "/*",
     "!/.github",
-    "!/docs",
     "!/i18n",
     "!/packages",
     "!/server",
@@ -26,7 +25,6 @@
     "**/dist",
     "**/coverage",
     "**/.svelte-kit",
-    "**/.docusaurus",
     // Previously ignored by prettier, scoped per directory
     "/server/**/*.md",
     "/server/**/*.json",
