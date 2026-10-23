@@ -4,20 +4,6 @@ sidebar_position: 2
 
 # Setup
 
-:::warning
-Make sure to read the [`CONTRIBUTING.md`](https://github.com/immich-app/immich/blob/main/CONTRIBUTING.md) before you dive into the code.
-:::
-
-:::note
-If there's a feature you're planning to work on, just give us a heads up in [#contributing](https://discord.com/channels/979116623879368755/1071165397228855327) on [our Discord](https://discord.immich.app) so we can:
-
-1. Let you know if it's something we would accept into Immich
-2. Provide any guidance on how something like that would ideally be implemented
-3. Ensure nobody is already working on that issue/feature so we don't duplicate effort
-
-Thanks for being interested in contributing 😊
-:::
-
 ## Environment
 
 ### Services
