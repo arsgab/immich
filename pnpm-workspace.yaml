@@ -3,9 +3,7 @@ packages:
   - docs
   - i18n
   - server
-  - plugins
   - web
-  - packages/*
 allowBuilds:
   '@nestjs/core': false
   '@parcel/watcher': false

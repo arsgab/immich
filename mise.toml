@@ -203,10 +203,6 @@ run = [
   "pnpm run dev",
 ]
 
-[tasks."web:start-demo"]
-env.IMMICH_SERVER_URL = "https://demo.immich.app"
-run = { task = "web:start" }
-
 [tasks."web:test"]
 dir = "web"
 run = "pnpm run test"

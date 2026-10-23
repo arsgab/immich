@@ -44,7 +44,7 @@ lint = [
     "ruff>=0.0.272",
     { include-group = "types" },
 ]
-dev = ["locust>=2.15.1", { include-group = "test" }, { include-group = "lint" }]
+dev = [{ include-group = "test" }, { include-group = "lint" }]
 # the image replaces onnxruntime-openvino with one built against and bundling this openvino
 onnxruntime-openvino-build = ["openvino==2026.5.0.dev20261005", "setuptools", "wheel"]
 # the CUDA libraries the cuda image has in its nvidia/cuda base, for running outside it
